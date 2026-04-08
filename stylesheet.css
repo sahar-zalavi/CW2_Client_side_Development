@@ -1,7 +1,7 @@
 header {
   display: flex;
   align-items: center;
-  padding: 10px 30px;
+  padding: 15px 30px;
   background-color: #f5f5f5;
 }
 .nav1 a {
@@ -11,12 +11,24 @@ header {
   color: #003366;
 }
 
+.nav1 {
+  display: flex;
+  gap: 25px;   /* spacing between links */
+}
+
+.nav1 a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #2c003e;   /* bank‑style colour */
+}
+
+
 .nav1 a:hover {
   text-decoration: underline;
 }
 
 .logo {
-  height: 50px;    
+  height: 45px;    
   width: auto;      
   margin-right: 40px;
 }
