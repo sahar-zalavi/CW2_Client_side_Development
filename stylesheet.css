@@ -13,13 +13,13 @@ header {
 
 .nav1 {
   display: flex;
-  gap: 25px;   /* spacing between links */
+  gap: 25px;   
 }
 
 .nav1 a {
   text-decoration: none;
   font-weight: 500;
-  color: #2c003e;   /* bank‑style colour */
+  color: #2c003e;   
 }
 
 
@@ -35,15 +35,10 @@ header {
 .search-form {
   display: flex;
   align-items: center;
-  gap: 8px;
+  margin-left: 30px;
+  gap: 10px;
 }
 
-#searchInput {
-  padding: 6px 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 160px;
-}
 
 #searchInput {
   padding: 6px 12px;
@@ -59,10 +54,14 @@ header {
 #searchResults a {
   display: block;
   text-decoration: none;
-  color: #003366;
+  color:#003366;
   padding: 4px 0;
 }
 
 #searchResults a:hover {
   text-decoration: underline;
+}
+.search-form label {
+  color: #2c003e;        
+  font-size: 1rem;
 }
