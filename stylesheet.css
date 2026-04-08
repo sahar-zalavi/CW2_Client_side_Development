@@ -4,12 +4,7 @@ header {
   padding: 15px 30px;
   background-color: #f5f5f5;
 }
-.nav1 a {
-  margin-right: 20px;
-  text-decoration: none;
-  font-weight: 500;
-  color: #003366;
-}
+
 
 .nav1 {
   display: flex;
@@ -28,7 +23,7 @@ header {
 }
 
 .logo {
-  height: 90px;    
+  height: 45px;    
   width: auto;      
   margin-right: 40px;
 }
@@ -39,11 +34,12 @@ header {
   gap: 10px;
 }
 
-
 #searchInput {
-  padding: 6px 12px;
+  height: 32px;         
+  padding: 0 12px;    
+  line-height: 32px;
   border: 1px solid #999;
-  border-radius: 20px; 
+  border-radius: 20px;
   width: 180px;
   font-size: 0.9rem;
 }
@@ -62,6 +58,7 @@ header {
   text-decoration: underline;
 }
 .search-form label {
-  color: #2c003e;        
-  font-size: 1rem;
+  margin: 0;            
+  line-height: 1;       
+  color: #2c003e
 }
