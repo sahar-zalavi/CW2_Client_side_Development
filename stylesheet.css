@@ -32,3 +32,37 @@ header {
   width: auto;      
   margin-right: 40px;
 }
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#searchInput {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 160px;
+}
+
+#searchInput {
+  padding: 6px 12px;
+  border: 1px solid #999;
+  border-radius: 20px; 
+  width: 180px;
+  font-size: 0.9rem;
+}
+#searchResults {
+  margin-top: 5px;
+}
+
+#searchResults a {
+  display: block;
+  text-decoration: none;
+  color: #003366;
+  padding: 4px 0;
+}
+
+#searchResults a:hover {
+  text-decoration: underline;
+}
