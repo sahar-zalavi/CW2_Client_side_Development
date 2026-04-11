@@ -11,8 +11,10 @@ header {
   display: flex;
   align-items: center;
   padding: 15px 30px;
-  background-color: #F5F6FA;
+  background-color:#0A2A66;
   border-bottom: 1px solid #e0e0e0;
+   flex-wrap: wrap;
+  
 }
 
 .nav1 {
@@ -20,6 +22,7 @@ header {
   align-items: center;
   gap: 25px;
   margin-left: 40px;
+  flex-wrap: wrap;
 }
 
 
@@ -27,7 +30,7 @@ header {
 .nav1 a {
   text-decoration: none;
   font-weight: 500;
-  color: #0A2A66; 
+  color:#ffffff;; 
   position: relative;
 }
 
@@ -69,19 +72,18 @@ header {
   padding: 4px 0;
 }
 
+
 #searchResults a:hover {
   text-decoration: underline;
 }
 
-.search-form label {
-  position: absolute;
-  left: -9999px;
-}
 
 .search-form label {
   margin: 0;            
   line-height: 32px;   
-  color: #2c003e
+  color: #2c003e;
+  position: absolute;
+  left: -9999px;
 }
 
 
@@ -155,7 +157,7 @@ header {
 
 .login-form button:hover {
 
-background-color: #5A4FCF; /* Secondary */
+background-color: #5A4FCF; 
 }
 
 
@@ -163,3 +165,102 @@ background-color: #5A4FCF; /* Secondary */
   color: #D32F2F;
   font-size: 0.85rem;
 }
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px 8%;
+  background: #5fa3f2;
+  gap: 40px;
+  
+}
+
+.hero-content {
+  max-width: 440px;
+}
+
+.hero h1 {
+  font-size: 36px;
+  line-height: 1.2;
+  color: #0a1f44;
+  margin-bottom: 20px;
+  white-space: nowrap;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #0c0c0c;
+  margin-bottom: 32px;
+  font-weight: bold;
+}
+
+.a:hover:hover {
+  text-decoration: underline;
+}
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.buttons {
+  display: flex;          
+  gap: 25px;
+}
+
+.buttons a {
+  text-decoration: none;  
+  color: #0a1f44;        
+  font-weight: 600;
+  font-size: 16px;
+}
+
+ .secure_pic {
+    max-width: 200%;
+    height: auto;
+  }
+
+  * {
+  box-sizing: border-box;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+#btn1, #btn2 {
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  background-color: #0A2A66;
+  color: white;
+}
+.about {
+  padding: 60px 8%;
+  background: #F5F6FA;
+  color: #2C2C2C;
+}
+
+.about h2 {
+  color: #0A2A66;
+}
+
+summary {
+  cursor: pointer;
+  color: #0A2A66;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+summary:hover {
+  text-decoration: underline;
+}
+
+
