@@ -1,45 +1,78 @@
-<html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head> 
+  <!-- Favicon -->
+  <link rel="icon" href="images/bank_logo_dark.png">
+
+  <title>Unity Bank</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="stylesheet.css">
+
+  <script src="jquery-4.0.0.js"></script>
+  <script src="JavaScript.js"></script>
+
+</head>
+
+<body>
+
+<!-- ================= HEADER / NAV BAR ================= -->
+<header class="d-flex align-items-center px-4 py-3">
+
+  <!-- Logo -->
+  <img src="images/bank_logo.png" alt="Unity Bank Logo" class="logo">
+
+  <!-- Navigation links -->
  
-<meta charset="UTF-8"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">    
-<meta name="description" content="JavaScript Function">   
+  <nav class="nav1">
+    <a href="home.html">Home</a>
+    <a href="accounts.html">Accounts</a>
+    <a href="transfers.html">Transfers</a>
+    <a href="support.html">Support</a>
 
-<title>Accounts Unity Bank</title> 
+   <!-- Sign in -->
+<div class="dropdown">
+  <a href="#" id="signInBtn">Sign in</a>
+  <div class="dropdown-content" id="signInBox">
+    <form id="signInForm">
+      <input type="text" id="loginUsername" placeholder="Username" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button type="submit">Sign in</button>
+    </form>
+  </div>
+</div>
 
-<link rel="stylesheet" href="stylesheet.css"> 
-<link rel="stylesheet" href="bootstrap.min.css">  
-<script src="JavaScript.js"></script> 
-<script src="jquery-4.0.0.js"></script>  
-
-</head> 
-
-<body> 
-
- <header>
-    <img src="images/bank_logo.png" alt="bank's logo" class="logo">
+<!-- Sign up -->
+<div class="dropdown">
+  <a href="#" id="signUpBtn">Sign up</a>
+  <div class="dropdown-content" id="signUpBox">
+    <form id="signUpForm">
+      <input type="text" id="signupUsername" placeholder="Username" required>
+      <input type="email" id="signupEmail" placeholder="Email" required>
+      <input type="password" id="signupPassword" placeholder="Password" required>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+      <button type="submit">Sign up</button>
+    </form>
+  </div>
+</div>
     
-    <nav class="nav1">
-        <a href="home.html">Home</a>
-        <a href="accounts.html">Accounts</a>
-        <a href="transfers.html">Transfers</a>
-        <a href="support.html">Support</a>
-        <a href="login.html" class="login">Login</a>
-        <form class="search-form">
-  <label for="searchInput" class="search">Search</label>
-  <input
-    type="search" id="searchInput" placeholder="Search"
-     aria-label="Search the website">
-</form>
-    </nav>
+    <div class="ms-auto">
+    <form class="search-form">
+      <input type="search" id="searchInput" placeholder="Search">
+      <div id="searchResults"></div>
+    </form>
+  </div>
+  </nav>
 
+
+ 
 
 </header>
-
-
-</body> 
-
-</html> 
-
-
+</body>
+</html>
