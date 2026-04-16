@@ -216,10 +216,10 @@ header {
 }
 
  .secure_pic {
-  display: block;
-  width: 100%;
-  max-width: 550px;
+  max-width: 450px;
   height: auto;
+  display: block;
+  margin-left: auto;   /* ✅ THIS pushes it to the right */
 }
 
 .about {
