@@ -2,11 +2,14 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
   font-family: 'Roboto', Arial, sans-serif;
   background-color: #F5F6FA;
   color: #2C2C2C;
+  max-width: 100%;
+  overflow-x: hidden;
+
 }
 
 
@@ -34,7 +37,16 @@ header {
   align-items: center;
   background: #0A2A66;
   padding: 15px 30px;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+
 }
+
+
+
 
 .logo {
   height: 60px;
@@ -45,17 +57,31 @@ header {
   display: flex;
   align-items: center;
   gap: 25px;
+  flex-wrap: nowrap;
+  min-width: 0;  
+  flex-shrink: 1;
+  padding-right: 160px; 
+}
+@media (max-width: 900px) {
+  .nav1 {
+    padding-right: 160px;
+  }
 }
 
 .nav1 a {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  white-space: nowrap;
 }
 .dropdown {
-  position: relative; 
-  display: inline-block;
+ 
+  display: flex;
+  gap: 10px;
+  white-space: nowrap;
+  max-width: 160px;
 }
+
 
 .dropdown-content {
   display: none;      
@@ -98,19 +124,12 @@ header {
   cursor: pointer;
 }
 
-.search-form {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  gap: 10px;
-}
-
 #searchInput {
   height: 32px;
   padding: 0 12px;
   border: 1px solid #0A2A66;
   border-radius: 20px;
-  width: 180px;
+  width: 120px;
   font-size: 0.9rem;
 }
 
@@ -119,12 +138,26 @@ header {
   left: -9999px;
 }
 
+
 .search-form {
   display: flex;
   align-items: center;
   margin-left: auto;
   gap: 10px;
   position: relative;
+   flex-shrink: 0;
+  
+}
+@media (max-width: 900px) {
+  .search-form {
+    display: flex;
+    position: absolute;     
+    right: 16px;            
+    top: 50%;               
+    transform: translateY(-50%);
+    margin-left: 0;
+
+  }
 }
 
 
@@ -132,7 +165,7 @@ header {
   position: absolute;
   background: white;
   width: 180px;
-  top: 35px;         
+  top: calc(100% + 5px);         
   right: 0;
   border-radius: 4px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -164,6 +197,7 @@ header {
   display: block;
   align-items: center; 
   background: #5fa3f2;
+  margin-top: 0;
 }
 .hero-content {
   max-width: 440px;
@@ -219,7 +253,7 @@ header {
   max-width: 450px;
   height: auto;
   display: block;
-  margin-left: auto;   /* ✅ THIS pushes it to the right */
+  margin-left: auto;   
 }
 
 .about {
@@ -242,4 +276,109 @@ summary {
 summary:hover {
   text-decoration: underline;
 }
+.search-form {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.footer {
+  background-color: #0A2A66;
+  color: white;
+  padding: 12px 40px;
+}
 
+/* ✅ 4 columns in ONE ROW */
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+/* columns */
+.footer-col h6 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col li {
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+/* right alignment */
+.footer-right {
+  text-align: right;
+}
+
+.social-row {
+  display: flex;          /* ✅ heading + icons in one row */
+  align-items: center;
+  justify-content: flex-end; /* right-aligned column */
+  gap: 12px;
+}
+
+
+
+/* icons */
+
+.social-icons {
+  display: flex;          /* keep icons in one row */
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+.social-icons img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Slightly reduce Facebook if it still looks bigger */
+#img_f {
+  width: 25px;
+  height: 25px;
+  
+}
+
+.social-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+
+/* back to top */
+.back-to-top {
+  font-size: 0.75rem;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.back-to-top:hover {
+  text-decoration: underline;
+}
+
+/* bottom line */
+.footer-bottom {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  text-align: center;
+}
