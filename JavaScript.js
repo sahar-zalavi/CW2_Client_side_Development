@@ -26,16 +26,42 @@ $(document).ready(function () {
     const user = $("#loginUsername").val().trim();
     const pass = $("#loginPassword").val();
 
-    if (!usernameRegex.test(user) || !passwordRegex.test(pass)) {
-      return alert("Invalid username or password format.");
+    if (!usernameRegex.test(user))  {
+      return alert("Username must be 4–20 letters or numbers.");
     }
+
+    if (!passwordRegex.test(pass)) {
+       alert("Password is not strong enough.");
+       return;
+  }
 
     // Success UI State
     $("#signInBox").hide();
-    $("#signInBtn").text(`Welcome, ${user}`).css("pointer-events", "none");
+   
+$("#signInBtn").text("Account").css("pointer-events", "none");
     $("#signOutBtn").show();
     alert("Signed in successfully!");
   });
+  
+//sign out
+$("#signOutBtn").on("click", function (e) {
+  e.preventDefault();
+
+  $("#signInBtn")
+    .text("Sign in")
+    .css("pointer-events", "auto");
+
+  $("#signOutBtn").hide();
+
+  $("#loginUsername").val("");
+  $("#loginPassword").val("");
+
+  $("#signInBox, #signUpBox").hide();
+
+  localStorage.removeItem("lastUsername");
+
+  alert("Signed out.");
+});
 
   // Sign Up Submission
   $("#signUpForm").on("submit", function (e) {
@@ -56,14 +82,9 @@ $(document).ready(function () {
     $("#signUpBox").hide();
   });
 
-  // Sign Out
-  $("#signOutBtn").on("click", function (e) {
-    e.preventDefault();
-    $("#signInBtn").text("Sign in").css("pointer-events", "auto");
-    $(this).hide();
-    alert("Signed out.");
-  });
 
+
+  //search input 
   
   $("#searchInput").on("input", function () {
     const query = $(this).val().toLowerCase().trim();
