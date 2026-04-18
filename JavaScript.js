@@ -35,7 +35,7 @@ $(document).ready(function () {
        return;
   }
 
-    // Success UI State
+   
     $("#signInBox").hide();
    
 $("#signInBtn").text("Account").css("pointer-events", "none");
@@ -109,4 +109,31 @@ $("#signOutBtn").on("click", function (e) {
 
     if ($results.is(":empty")) $results.append("<p>No results found</p>");
   });
+});
+
+//images
+
+$(document).ready(function () {
+  $(".trust-toggle").on("click", function () {
+    $(".trust-points").slideToggle();
+  });
+});
+
+$(document).ready(function () {
+  $(".journey-btn").on("click", function () {
+    $(".journey-text").hide();
+    $($(this).data("target")).fadeIn();
+  });
+});
+
+
+$(document).ready(function () {
+  let index = 0;
+  const slides = $(".slider-img");
+
+  setInterval(function () {
+    slides.removeClass("active");
+    index = (index + 1) % slides.length;
+    slides.eq(index).addClass("active");
+  }, 3000); // change every 3 seconds
 });
