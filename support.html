@@ -102,6 +102,20 @@
     </div>
   </div>
 </section>
+<section class="container mb-5">
+  <h3>Frequently Asked Questions</h3>
+
+  <div>
+    <h5 class="faq-question">How do I reset my password?</h5>
+    <p class="faq-answer">Click "Sign in" and select "Forgot password" to reset your details.</p>
+
+    <h5 class="faq-question">How do I report a lost card?</h5>
+    <p class="faq-answer">Contact our support team immediately or use the mobile app to freeze your card.</p>
+
+    <h5 class="faq-question">How can I contact support?</h5>
+    <p class="faq-answer">You can reach us via phone, email, or the contact form on this page.</p>
+  </div>
+</section>
 <footer class="footer">
   <div class="footer-grid">
 
@@ -158,5 +172,16 @@
     © 2026 Unity Bank. All rights reserved.
   </div>
 </footer>
+<script>
+$(document).ready(function(){
+
+  $(".faq-answer").hide();
+
+  $(".faq-question").click(function(){
+    $(this).next(".faq-answer").slideToggle();
+  });
+
+});
+</script>
 </body>
 </html>
