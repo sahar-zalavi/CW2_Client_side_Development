@@ -22,13 +22,12 @@
 
 <body>
 
-<!-- ================= HEADER / NAV BAR ================= -->
+<!-- HEADER -->
 <header class="d-flex align-items-center px-4 py-3">
 
   <!-- Logo -->
   <img src="images/bank_logo.png" alt="Unity Bank Logo" class="logo">
 
-  <!-- Navigation links -->
  
   <nav class="nav1">
     <a href="home.html">Home</a>
@@ -69,11 +68,165 @@
     </form>
   </div>
   </nav>
-
-
- 
-
 </header>
+
+<section class="container my-5">
+  <img src="images/Loans.webp" alt="Loan image">
+  <h2 class="mb-4 text-primary">Our Loan Products</h2>
+  <p class="text-muted mb-5">
+    Unity Bank offers a range of loan products to support customers with
+    education, business growth, and long‑term financial commitments.
+    Our loan options are designed to assist customers with a variety of
+    financial needs. These loans provide structured borrowing with clear
+    terms, helping customers manage important expenses responsibly.
+  </p>
+
+  <!-- ✅ ROW WRAPPER START -->
+  <div class="row">
+
+    <!-- student loan -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+
+          <img src="images/Student-Loans.jpg" class="loan-img img-fluid" alt="Student loan image">
+
+          <h5 class="card-title">Student Loans</h5>
+
+          <p class="card-text">
+            Student loans support individuals pursuing higher education by helping
+            cover tuition fees, accommodation, and essential living costs. Unity
+            Bank structures these loans with consideration for students’ future
+            financial circumstances.
+          </p>
+
+          <details class="mb-3">
+            <summary>Eligibility</summary>
+            <ul>
+              <li>Must be 18 years or older</li>
+              <li>Enrolled in a recognised institution</li>
+              <li>UK residency required</li>
+              <li>Proof of student status</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Apply Online</summary>
+            <form class="loan-form student-form mt-3">
+              <input type="text" class="form-control" placeholder="Full Name" required>
+              <input type="email" class="form-control" placeholder="Email Address" required>
+              <input type="text" class="form-control" placeholder="Student ID">
+              <button type="submit" class="btn btn-primary w-100">
+                Submit Application
+              </button>
+              <div class="error-text">Please enter valid details</div>
+            </form>
+          </details>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Business Loan -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+
+          <img src="images/business_loans.webp" class="loan-img img-fluid" alt="Business loan image">
+
+          <h5 class="card-title">Business Loans</h5>
+
+          <p class="card-text">
+            Business loans are designed to support small and medium‑sized enterprises
+            by providing funding for growth, equipment investment, and operational
+            needs, helping businesses maintain financial stability.
+          </p>
+
+          <details class="mb-3">
+            <summary>Eligibility</summary>
+            <ul>
+              <li>Minimum deposit required</li>
+              <li>Stable income or employment</li>
+              <li>Credit history assessment</li>
+              <li>Property valuation required</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Apply Online</summary>
+           <summary>Apply Online</summary>
+            <form class="loan-form mt-3">
+                <input type="text" class="form-control" placeholder="Business Name" required>
+                <input type="text" class="form-control" placeholder="Applicant Full Name" required>
+                <input type="email" class="form-control" placeholder="Email Address" required>
+                <input type="text" class="form-control" placeholder="Company Registration Number">
+                <input type="number" class="form-control" placeholder="Requested Loan Amount (£)">
+                <button type="submit" class="btn btn-primary w-100">
+                  Submit Application
+                </button>
+            </form>
+
+          </details>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- mortgage -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+
+          <img src="images/mortgage.avif" class="loan-img img-fluid" alt="Mortgage image">
+
+          <h5 class="card-title">Mortgage</h5>
+
+          <p class="card-text">
+            Mortgage products help customers purchase or refinance residential
+            property through long‑term financing solutions. Unity Bank supports
+            customers throughout the home‑buying journey with clear guidance.
+          </p>
+
+          <details class="mb-3">
+            <summary>Eligibility</summary>
+            <ul>
+              <li>Minimum deposit required</li>
+              <li>Stable income or employment</li>
+              <li>Property valuation assessment</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Apply Online</summary>
+           <summary>Apply Online</summary>
+              <form class="loan-form mt-3">
+                <input type="text" class="form-control" placeholder="Full Name" required>
+                <input type="email" class="form-control" placeholder="Email Address" required>
+                <input type="number" class="form-control" placeholder="Property Value (£)">
+                <input type="number" class="form-control" placeholder="Deposit Amount (£)">
+                <input type="number" class="form-control" placeholder="Annual Income (£)">
+                <button type="submit" class="btn btn-primary w-100">
+                  Submit Application
+                </button>
+              </form>
+          </details>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Personal Loan -->
+<div class="col-md-6 mb-4">
+  <div class="card h-100 shadow-sm">
+    <div class="card-body">
+
+      <img src="images/personal_loan.jpeg" class="loan-img img-fluid"
+           alt="Personal loan image">
+
+     
+</section>
+
 <footer class="footer">
   <div class="footer-grid">
 
@@ -83,9 +236,12 @@
       <ul>
         <li>Bank Accounts</li>
         <li>Credit Cards</li>
-        <li>Loans</li>
         <li>Savings</li>
-      </ul>
+        <li>Loans</li>
+        <li>Student Loans</li>
+        <li>Business Loans</li>
+        <li>Mortgage</li>
+        </ul>
     </div>
 
     <!-- Column 2 -->

@@ -137,3 +137,27 @@ $(document).ready(function () {
     slides.eq(index).addClass("active");
   }, 3000); // change every 3 seconds
 });
+
+//products
+$(document).ready(function () {
+  $(".loan-form").on("submit", function (e) {
+    e.preventDefault();
+
+    let isValid = true;
+    const form = $(this);
+
+    form.find("input[required]").each(function () {
+      if ($(this).val().trim() === "") {
+        isValid = false;
+      }
+    });
+
+    if (!isValid) {
+      form.find(".error-text").fadeIn();
+    } else {
+      form.find(".error-text").fadeOut();
+      alert("Your application has been submitted successfully.");
+      form[0].reset();
+    }
+  });
+});
