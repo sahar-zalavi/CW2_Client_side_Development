@@ -27,48 +27,52 @@
   <!-- Logo -->
   <img src="images/bank_logo.png" alt="Unity Bank Logo" class="logo">
 
-  <!-- Navigation links -->
- 
-  <nav class="nav1">
+  <!-- Hamburger Button -->
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+
+  <!-- Navigation -->
+  <nav class="nav1" id="mainNav">
+
     <a href="home.html">Home</a>
     <a href="accounts.html">Accounts</a>
     <a href="transfers.html">Transfers</a>
     <a href="support.html">Support</a>
     <a href="product.html">Our Products</a>
 
-   <!-- Sign in -->
-<div class="dropdown">
-  <a href="#" id="signInBtn">Sign in</a>
-  <a href="#" id="signOutBtn" style="display: none; color: #ff4d4d; margin-left: 10px;">Sign out</a>
-  <div class="dropdown-content" id="signInBox">
-    <form id="signInForm">
-      <input type="text" id="loginUsername" placeholder="Username" autocomplete="username" required>
-      <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" required>
-      <button type="submit">Sign in</button>
-    </form>
-  </div>
-</div>
+    <!-- Sign in -->
+    <div class="nav-dropdown">
+      <a href="#" id="signInBtn">Sign in</a>
+      <a href="#" id="signOutBtn" style="display: none; color: #ff4d4d; margin-left: 10px;">Sign out</a>
+      <div class="nav-dropdown-content" id="signInBox">
+        <form id="signInForm">
+          <input type="text" id="loginUsername" placeholder="Username" autocomplete="username" required>
+          <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" required>
+          <button type="submit">Sign in</button>
+        </form>
+      </div>
+    </div>
 
-<!-- Sign up -->
-<div class="dropdown">
-  <a href="#" id="signUpBtn">Sign up</a>
-  <div class="dropdown-content" id="signUpBox">
-    <form id="signUpForm">
-      <input type="text" id="signupUsername" placeholder="Username" required>
-      <input type="email" id="signupEmail" placeholder="Email" required>
-      <input type="password" id="signupPassword" placeholder="Password" required>
-      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
-      <button type="submit">Sign up</button>
-    </form>
-  </div>
-</div>
-    
+    <!-- Sign up -->
+    <div class="nav-dropdown">
+      <a href="#" id="signUpBtn">Sign up</a>
+      <div class="nav-dropdown-content" id="signUpBox">
+        <form id="signUpForm">
+          <input type="text" id="signupUsername" placeholder="Username" required>
+          <input type="email" id="signupEmail" placeholder="Email" required>
+          <input type="password" id="signupPassword" placeholder="Password" required>
+          <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+    </div>
+
     <div class="ms-auto">
-    <form class="search-form">
-      <input type="search" id="searchInput" placeholder="Search">
-      <div id="searchResults"></div>
-    </form>
-  </div>
+      <form class="search-form">
+        <input type="search" id="searchInput" placeholder="Search">
+        <div id="searchResults"></div>
+      </form>
+    </div>
+
   </nav>
 
 </header>
@@ -77,21 +81,18 @@
 <section class="hero">
   <div class="container">
     <div class="row align-items-center">
-
       <div class="col-md-6 hero-content">
         <h1>Secure. Smart. Simple Banking.</h1>
         <p>Manage your money anytime, anywhere.</p>
-
         <div class="buttons">
           <a href="accounts.html" id="btn1">Open an Account</a>
           <a href="transfers.html" id="btn2">Transfer Money</a>
         </div>
       </div>
-
-
     </div>
   </div>
 </section>
+
 <section class="about">
   <h2>About Unity Bank</h2>
 
@@ -101,17 +102,14 @@
     financial needs.
   </p>
 
-  <!-- Section 1 -->
   <details class="learn-more">
     <summary>Who we are</summary>
-
     <p>
       Unity Bank helps individuals manage their finances with confidence by
       combining advanced security, smart financial tools, and a simple
       user experience. Customers have full control over their accounts
       anytime and anywhere.
     </p>
-
     <ul>
       <li><strong>Secure Banking:</strong> Advanced protection for customer data.</li>
       <li><strong>Smart Tools:</strong> Real‑time insights and clear account views.</li>
@@ -119,16 +117,13 @@
     </ul>
   </details>
 
-  <!-- Section 2 -->
   <details class="learn-more">
     <summary>Why customers trust Unity Bank</summary>
-
     <p>
       Trust is essential in modern banking. Unity Bank operates with clear
       policies, reliable digital systems, and strong security standards to
       protect customers at all times.
     </p>
-
     <ul>
       <li><strong>Data Protection:</strong> Secure handling of personal information.</li>
       <li><strong>Transparency:</strong> Clear terms and customer‑focused services.</li>
@@ -136,15 +131,12 @@
     </ul>
   </details>
 
-  <!-- Section 3 -->
   <details class="learn-more">
     <summary>Supporting your financial journey</summary>
-
     <p>
       Unity Bank supports customers throughout every stage of their financial
       journey, offering services that adapt to changing needs and goals.
     </p>
-
     <ul>
       <li><strong>Everyday Banking:</strong> Manage accounts and transactions easily.</li>
       <li><strong>Financial Growth:</strong> Savings and planning options.</li>
@@ -152,35 +144,77 @@
     </ul>
   </details>
 
-<div class="image-slider text-end">
-
-  <img src="images/secure.png"
-       class="img-fluid about-img slider-img active"
-       alt="Secure banking image">
-
-  <img src="images/journey.avif"
-       class="img-fluid about-img slider-img slider-small"
-       alt="Financial journey image">
-
-  <img src="images/trust.png"
-       class="img-fluid about-img slider-img slider-small"
-       alt="Trust image">
-
-</div>
-
+  <div class="image-slider text-end">
+    <img src="images/secure.png"   class="img-fluid about-img slider-img active" alt="Secure banking image">
+    <img src="images/journey.avif" class="img-fluid about-img slider-img slider-small" alt="Financial journey image">
+    <img src="images/trust.png"    class="img-fluid about-img slider-img slider-small" alt="Trust image">
+  </div>
 
 </section>
+<section class="container my-5">
 
-   
+  <!-- Centered heading -->
+  <h2 class="text-center">Our Products</h2>
 
+  <div class="row">
 
+    <!-- Student Loan -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body text-center">
+          <a href="product.html#student-loan">
+            <img src="images/Student-Loans.jpg"
+                 class="loan-img"
+                 alt="Student loan">
+          </a>
+          <h5 class="card-title">Student Loans</h5>
+          <p class="card-text">
+            Support for tuition, accommodation, and student living costs.
+          </p>
+        </div>
+      </div>
+    </div>
 
+    <!-- Business Loan -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body text-center">
+          <a href="product.html#business-loan">
+            <img src="images/business_loans.webp"
+                 class="loan-img"
+                 alt="Business loan">
+          </a>
+          <h5 class="card-title">Business Loans</h5>
+          <p class="card-text">
+            Funding solutions to support business growth and operations.
+          </p>
+        </div>
+      </div>
+    </div>
 
+    <!-- Mortgage -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body text-center">
+          <a href="product.html#mortgage-loan">
+            <img src="images/mortgage.avif"
+                 class="loan-img"
+                 alt="Mortgage">
+          </a>
+          <h5 class="card-title">Mortgage</h5>
+          <p class="card-text">
+            Long‑term home financing with competitive interest rates.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <footer class="footer">
   <div class="footer-grid">
 
-   
     <div class="footer-col">
       <h6>Our Products</h6>
       <ul>
@@ -190,12 +224,10 @@
         <li>Loans</li>
         <li>Student Loans</li>
         <li>Business Loans</li>
-         <li>Mortgage</li>
-        
+        <li>Mortgage</li>
       </ul>
     </div>
 
-  
     <div class="footer-col">
       <h6>Support</h6>
       <ul>
@@ -206,10 +238,7 @@
       </ul>
     </div>
 
-   
     <div class="footer-col">
-      
-
       <h6>Contact Us</h6>
       <ul>
         <li>📞 +44 20 7123 4567</li>
@@ -218,24 +247,23 @@
       </ul>
     </div>
 
-    
     <div class="footer-col footer-right">
-
-      <a href="#top" class="back-to-top">↑ Back to top</a>
-
-      <h6 >Follow Us</h6>
+      <h6>Follow Us</h6>
       <div class="social-icons">
         <a href="#"><img src="images/facebook2.png" id="img_f" alt="Facebook"></a>
-        <a href="#"><img src="images/twitter.webp"  alt="Twitter"></a>
+        <a href="#"><img src="images/twitter.webp" alt="Twitter"></a>
         <a href="#"><img src="images/Linkedin2.png" alt="LinkedIn"></a>
       </div>
     </div>
 
   </div>
 
-  <div class="footer-bottom">
-    © 2026 Unity Bank. All rights reserved.
+  <div class="footer-base">
+    <a href="#top" class="back-to-top">↑ Back to top</a>
+    <span>© 2026 Unity Bank. All rights reserved.</span>
   </div>
+
 </footer>
+
 </body>
 </html>
