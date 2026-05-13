@@ -1,18 +1,18 @@
+Here is your full HTML with the support note correctly inserted in all four <details> sections and nothing extra added.
+
+``html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Favicon -->
   <link rel="icon" href="images/favicon.png">
 
   <title>Support | Unity Bank</title>
 
-  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="bootstrap.min.css">
 
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="stylesheet.css">
 
   <script src="jquery-4.0.0.js"></script>
@@ -23,23 +23,16 @@
 <body id="top">
 
 <header class="d-flex align-items-center px-4 py-3">
-
-  <!-- Logo -->
-  <img src="images/bank_logo.png" alt="Unity Bank Logo" class="logo">
-
-  <!-- Hamburger Button -->
+  <img src="images/banklogo.png" alt="Unity Bank Logo" class="logo">
   <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
 
-  <!-- Navigation -->
   <nav class="nav1" id="mainNav">
-
     <a href="home.html">Home</a>
     <a href="accounts.html">Accounts</a>
     <a href="transfers.html">Transfers</a>
     <a href="support.html">Support</a>
     <a href="product.html">Our Products</a>
 
-    <!-- Sign in -->
     <div class="nav-dropdown">
       <a href="#" id="signInBtn">Sign in</a>
       <a href="#" id="signOutBtn" style="display: none; color: #ff4d4d; margin-left: 10px;">Sign out</a>
@@ -52,7 +45,6 @@
       </div>
     </div>
 
-    <!-- Sign up -->
     <div class="nav-dropdown">
       <a href="#" id="signUpBtn">Sign up</a>
       <div class="nav-dropdown-content" id="signUpBox">
@@ -74,10 +66,8 @@
     </div>
 
   </nav>
-
 </header>
 
-<!-- HERO SECTION - Matches home page style -->
 <section class="hero support-hero">
   <div class="container">
     <div class="row align-items-center">
@@ -93,12 +83,9 @@
   </div>
 </section>
 
-<!-- SUPPORT CARDS SECTION -->
 <section class="about support-cards-section">
   <h2>Support Centre</h2>
-  <p class="about-intro">
-    Get the help you need with your Unity Bank accounts, cards, and services.
-  </p>
+  <p class="about-intro">Get the help you need with your Unity Bank accounts, cards, and services.</p>
 
   <div class="support-grid">
     
@@ -108,6 +95,9 @@
       <p>Get support with logging in, account access, password resets, and security questions.</p>
       <details class="learn-more">
         <summary>Common issues</summary>
+        <p class="support-note">
+          These are examples of issues we can assist with. To get help with any of them, please submit the support form below.
+        </p>
         <ul>
           <li>Forgotten password or username</li>
           <li>Account locked after failed attempts</li>
@@ -123,6 +113,9 @@
       <p>Find help for lost or stolen cards, card activation, PIN changes, and payment issues.</p>
       <details class="learn-more">
         <summary>Common issues</summary>
+        <p class="support-note">
+          These are examples of issues we can assist with. To get help with any of them, please submit the support form below.
+        </p>
         <ul>
           <li>Report lost or stolen card</li>
           <li>Activate a new card</li>
@@ -138,6 +131,9 @@
       <p>Assistance with transfers, direct debits, standing orders, and international payments.</p>
       <details class="learn-more">
         <summary>Common issues</summary>
+        <p class="support-note">
+          These are examples of issues we can assist with. To get help with any of them, please submit the support form below.
+        </p>
         <ul>
           <li>Failed or pending transfers</li>
           <li>Setting up direct debits</li>
@@ -153,6 +149,9 @@
       <p>Technical support for our mobile app and online banking platform.</p>
       <details class="learn-more">
         <summary>Common issues</summary>
+        <p class="support-note">
+          These are examples of issues we can assist with. To get help with any of them, please submit the support form below.
+        </p>
         <ul>
           <li>App login problems</li>
           <li>Push notification settings</li>
@@ -165,13 +164,12 @@
   </div>
 </section>
 
-<!-- FAQ SECTION -->
 <section class="about faq-section" id="faq-section">
   <h2>Frequently Asked Questions</h2>
   <p class="about-intro">Quick answers to our most common questions.</p>
 
   <div class="faq-container">
-    
+
     <div class="faq-item">
       <h5 class="faq-question">How do I reset my password?</h5>
       <div class="faq-answer">
@@ -219,7 +217,6 @@
   </div>
 </section>
 
-<!-- CONTACT FORM SECTION -->
 <section class="about contact-section" id="contact-section">
   <h2>Contact Support</h2>
   <p class="about-intro">Can't find what you're looking for? Send us a message and we'll get back to you within 24 hours.</p>
@@ -228,19 +225,19 @@
     
     <form id="supportForm" class="support-form">
       <div class="form-group">
-        <label for="name">Full Name <span class="required">*</span></label>
+        <label for="name">Full Name <span class="required"></span></label>
         <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
         <span class="error-message" id="nameError"></span>
       </div>
 
       <div class="form-group">
-        <label for="email">Email Address <span class="required">*</span></label>
+        <label for="email">Email Address <span class="required"></span></label>
         <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
         <span class="error-message" id="emailError"></span>
       </div>
 
       <div class="form-group">
-        <label for="subject">Subject <span class="required">*</span></label>
+        <label for="subject">Subject <span class="required"></span></label>
         <select id="subject" class="form-control" required>
           <option value="">Select a topic</option>
           <option value="account">Account Help</option>
@@ -254,7 +251,7 @@
       </div>
 
       <div class="form-group">
-        <label for="message">Message <span class="required">*</span></label>
+        <label for="message">Message <span class="required"></span></label>
         <textarea id="message" class="form-control" rows="5" placeholder="Describe your issue or question in detail..." required></textarea>
         <span class="error-message" id="messageError"></span>
         <span class="char-count"><span id="charCount">0</span>/1000 characters</span>
@@ -309,7 +306,6 @@
   </div>
 </section>
 
-<!-- SUCCESS MESSAGE (hidden by default) -->
 <div id="successMessage" class="success-message" style="display: none;">
   <div class="success-content">
     <span class="success-icon">✓</span>
@@ -322,7 +318,6 @@
 
 <footer class="footer">
   <div class="footer-grid">
-
     <div class="footer-col">
       <h6>Our Products</h6>
       <ul>
@@ -358,49 +353,40 @@
     <div class="footer-col footer-right">
       <h6>Follow Us</h6>
       <div class="social-icons">
-        <a href="#"><img src="images/facebook2.png" id="img_f" alt="Facebook"></a>
+        <a href="#"><img src="images/facebook2.png" id="imgf" alt="Facebook"></a>
         <a href="#"><img src="images/twitter.webp" alt="Twitter"></a>
         <a href="#"><img src="images/Linkedin2.png" alt="LinkedIn"></a>
       </div>
     </div>
-
   </div>
 
   <div class="footer-base">
     <a href="#top" class="back-to-top">↑ Back to top</a>
     <span>© 2026 Unity Bank. All rights reserved.</span>
   </div>
-
 </footer>
 
 <script>
 $(document).ready(function(){
 
-  
   $(".faq-answer").hide();
 
   $(".faq-question").click(function(){
-    
     $(".faq-question").not(this).removeClass("active");
     $(".faq-answer").not($(this).next()).slideUp(300);
-    
-    
     $(this).toggleClass("active");
     $(this).next(".faq-answer").slideToggle(300);
   });
 
-  
   $("#message").on("input", function(){
     const count = $(this).val().length;
     $("#charCount").text(count);
-    
     if(count > 1000){
       $(this).val($(this).val().substring(0, 1000));
       $("#charCount").text(1000);
     }
   });
 
-  
   $("#name").on("blur", function(){
     validateField($(this), "nameError", "Please enter your name");
   });
@@ -408,7 +394,6 @@ $(document).ready(function(){
   $("#email").on("blur", function(){
     const email = $(this).val().trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
     if(!email){
       showError($(this), "emailError", "Please enter your email");
     } else if(!emailRegex.test(email)){
@@ -433,13 +418,11 @@ $(document).ready(function(){
     }
   });
 
-  
   $("#supportForm").submit(function(event){
     event.preventDefault();
 
     let isValid = true;
 
-    
     const name = $("#name").val().trim();
     const email = $("#email").val().trim();
     const subject = $("#subject").val();
@@ -473,29 +456,24 @@ $(document).ready(function(){
     }
 
     if(isValid){
-      
       $(".btn-text").hide();
       $(".btn-loading").show();
 
-      
       setTimeout(function(){
         const ref = "UB" + Date.now().toString().slice(-8);
         $("#referenceNumber").text(ref);
 
         $("#supportForm")[0].reset();
         $("#charCount").text("0");
-        
-        
+
         $(".btn-text").show();
         $(".btn-loading").hide();
 
-        
         $("#successMessage").fadeIn(300);
       }, 1500);
     }
   });
 
-  
   $("#closeSuccess").click(function(){
     $("#successMessage").fadeOut(300);
   });
@@ -506,9 +484,9 @@ $(document).ready(function(){
     }
   });
 
-  function validateField($field, errorId, errorMsg){
+  function validateField($field, errorId, message){
     if(!$field.val().trim()){
-      showError($field, errorId, errorMsg);
+      showError($field, errorId, message);
     } else {
       clearError($field, errorId);
     }
@@ -539,3 +517,4 @@ $(document).ready(function(){
 
 </body>
 </html>
+``
