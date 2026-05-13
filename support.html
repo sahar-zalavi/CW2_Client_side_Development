@@ -202,6 +202,21 @@ $(document).ready(function(){
     $(this).next(".faq-answer").slideToggle();
   });
 
+  $("#supportForm").submit(function(event){
+
+    event.preventDefault();
+
+    let name = $("#name").val().trim();
+    let email = $("#email").val().trim();
+    let message = $("#message").val().trim();
+
+    if(name === "" || email === "" || message === ""){
+      alert("Please complete all fields.");
+    } else {
+      alert("Your support request has been submitted successfully.");
+      $("#supportForm")[0].reset();
+    }
+
 });
 </script>
 
