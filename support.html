@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Favicon -->
   <link rel="icon" href="images/favicon.png">
-
 
   <title>Unity Bank</title>
 
@@ -20,58 +20,60 @@
 
 </head>
 
-<body>
+<body id="top">
 
-<!-- ================= HEADER / NAV BAR ================= -->
 <header class="d-flex align-items-center px-4 py-3">
 
   <!-- Logo -->
   <img src="images/bank_logo.png" alt="Unity Bank Logo" class="logo">
 
-  <!-- Navigation links -->
- 
-  <nav class="nav1">
+  <!-- Hamburger Button -->
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+
+  <!-- Navigation -->
+  <nav class="nav1" id="mainNav">
+
     <a href="home.html">Home</a>
     <a href="accounts.html">Accounts</a>
     <a href="transfers.html">Transfers</a>
     <a href="support.html">Support</a>
-    <a href="product.html">Our Product</a>
-   <!-- Sign in -->
-<div class="dropdown">
-  <a href="#" id="signInBtn">Sign in</a>
-  <div class="dropdown-content" id="signInBox">
-    <form id="signInForm">
-      <input type="text" id="loginUsername" placeholder="Username" required>
-      <input type="password" id="loginPassword" placeholder="Password" required>
-      <button type="submit">Sign in</button>
-    </form>
-  </div>
-</div>
+    <a href="product.html">Our Products</a>
 
-<!-- Sign up -->
-<div class="dropdown">
-  <a href="#" id="signUpBtn">Sign up</a>
-  <div class="dropdown-content" id="signUpBox">
-    <form id="signUpForm">
-      <input type="text" id="signupUsername" placeholder="Username" required>
-      <input type="email" id="signupEmail" placeholder="Email" required>
-      <input type="password" id="signupPassword" placeholder="Password" required>
-      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
-      <button type="submit">Sign up</button>
-    </form>
-  </div>
-</div>
-    
+    <!-- Sign in -->
+    <div class="nav-dropdown">
+      <a href="#" id="signInBtn">Sign in</a>
+      <a href="#" id="signOutBtn" style="display: none; color: #ff4d4d; margin-left: 10px;">Sign out</a>
+      <div class="nav-dropdown-content" id="signInBox">
+        <form id="signInForm">
+          <input type="text" id="loginUsername" placeholder="Username" autocomplete="username" required>
+          <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" required>
+          <button type="submit">Sign in</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Sign up -->
+    <div class="nav-dropdown">
+      <a href="#" id="signUpBtn">Sign up</a>
+      <div class="nav-dropdown-content" id="signUpBox">
+        <form id="signUpForm">
+          <input type="text" id="signupUsername" placeholder="Username" required>
+          <input type="email" id="signupEmail" placeholder="Email" required>
+          <input type="password" id="signupPassword" placeholder="Password" required>
+          <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+    </div>
+
     <div class="ms-auto">
-    <form class="search-form">
-      <input type="search" id="searchInput" placeholder="Search">
-      <div id="searchResults"></div>
-    </form>
-  </div>
+      <form class="search-form">
+        <input type="search" id="searchInput" placeholder="Search">
+        <div id="searchResults"></div>
+      </form>
+    </div>
+
   </nav>
-
-
- 
 
 </header>
 <section class="container mt-5">
@@ -142,18 +144,19 @@
 <footer class="footer">
   <div class="footer-grid">
 
-    <!-- Column 1 -->
     <div class="footer-col">
       <h6>Our Products</h6>
       <ul>
         <li>Bank Accounts</li>
         <li>Credit Cards</li>
-        <li>Loans</li>
         <li>Savings</li>
+        <li>Loans</li>
+        <li>Student Loans</li>
+        <li>Business Loans</li>
+        <li>Mortgage</li>
       </ul>
     </div>
 
-    <!-- Column 2 -->
     <div class="footer-col">
       <h6>Support</h6>
       <ul>
@@ -164,10 +167,7 @@
       </ul>
     </div>
 
-    <!-- Column 3 -->
     <div class="footer-col">
-      
-
       <h6>Contact Us</h6>
       <ul>
         <li>📞 +44 20 7123 4567</li>
@@ -176,24 +176,22 @@
       </ul>
     </div>
 
-    <!-- Column 4 (right aligned) -->
     <div class="footer-col footer-right">
-
-      <a href="#top" class="back-to-top">↑ Back to top</a>
-
-      <h6 >Follow Us</h6>
+      <h6>Follow Us</h6>
       <div class="social-icons">
         <a href="#"><img src="images/facebook2.png" id="img_f" alt="Facebook"></a>
-        <a href="#"><img src="images/twitter.webp"  alt="Twitter"></a>
+        <a href="#"><img src="images/twitter.webp" alt="Twitter"></a>
         <a href="#"><img src="images/Linkedin2.png" alt="LinkedIn"></a>
       </div>
     </div>
 
   </div>
 
-  <div class="footer-bottom">
-    © 2026 Unity Bank. All rights reserved.
+  <div class="footer-base">
+    <a href="#top" class="back-to-top">↑ Back to top</a>
+    <span>© 2026 Unity Bank. All rights reserved.</span>
   </div>
+
 </footer>
 <script>
 $(document).ready(function(){
@@ -206,5 +204,6 @@ $(document).ready(function(){
 
 });
 </script>
+
 </body>
 </html>

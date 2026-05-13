@@ -9,63 +9,52 @@ html, body {
   color: #2C2C2C;
   max-width: 100%;
   overflow-x: hidden;
-
 }
 
-
+/* =====================
+   HEADER
+===================== */
 header {
   display: flex;
   align-items: center;
   padding: 15px 30px;
   background-color: #0A2A66;
   border-bottom: 1px solid #e0e0e0;
-  flex-wrap: wrap;
-}
-header {
-  overflow: visible !important; 
+  flex-wrap: nowrap;        /* keep everything on one line on desktop */
+  overflow: visible;
   position: relative;
   z-index: 1000;
-}
-.logo {
-  height: 90px;
-  width: auto;
-  margin-right: 40px;
+  gap: 16px;
 }
 
-.navbar {
-  display: flex;
-  align-items: center;
-  background: #0A2A66;
-  padding: 15px 30px;
-  flex-wrap: nowrap;
-  overflow-x: hidden;
-  max-width: 100%;
-  box-sizing: border-box;
-  position: relative;
-
-}
-
-
-
-
+/* =====================
+   LOGO
+===================== */
 .logo {
   height: 60px;
-  margin-right: 30px;
+  width: auto;
+  margin-right: 10px;
+  flex-shrink: 0;
 }
 
+/* =====================
+   HAMBURGER BUTTON
+   Hidden on desktop and tablet — shown only on mobile
+===================== */
+.nav-toggle {
+  display: none;
+}
+
+/* =====================
+   NAV
+===================== */
 .nav1 {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 20px;
   flex-wrap: nowrap;
-  min-width: 0;  
+  min-width: 0;
   flex-shrink: 1;
-  padding-right: 160px; 
-}
-@media (max-width: 900px) {
-  .nav1 {
-    padding-right: 160px;
-  }
 }
 
 .nav1 a {
@@ -73,55 +62,78 @@ header {
   text-decoration: none;
   font-weight: 500;
   white-space: nowrap;
+  font-size: 16px;
 }
-.dropdown {
- 
+
+/* =====================
+   DROPDOWN (sign in / sign up)
+===================== */
+.nav-dropdown {
   display: flex;
   gap: 10px;
   white-space: nowrap;
-  max-width: 160px;
+  position: relative;
 }
 
-
-.dropdown-content {
-  display: none;      
+.nav-dropdown-content {
+  display: none;
   position: absolute;
-  top: 100%;          
+  top: 100%;
   right: 0;
-  background-color: #ffffff !important;
+  background-color: #ffffff;
   padding: 20px;
   width: 280px;
   border-radius: 8px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-  z-index: 10000;      
+  z-index: 10000;
   border: 1px solid #ddd;
 }
 
-.dropdown-content input {
-  display: block;     
-  width: 100%;         
-  margin-bottom: 12px; 
-  padding: 10px;      
+.nav-dropdown-content input {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
+  color: #2C2C2C;
 }
 
-.dropdown-content button {
+.nav-dropdown-content button {
   width: 100%;
   background: #0A2A66;
   color: white;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
+  border: none;
 }
 
 #signInBtn {
   transition: all 0.3s ease;
 }
+
 #signOutBtn:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+/* =====================
+   SEARCH
+===================== */
+.search-form {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 10px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.search-form label {
+  position: absolute;
+  left: -9999px;
 }
 
 #searchInput {
@@ -133,39 +145,11 @@ header {
   font-size: 0.9rem;
 }
 
-.search-form label {
-  position: absolute;
-  left: -9999px;
-}
-
-
-.search-form {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  gap: 10px;
-  position: relative;
-   flex-shrink: 0;
-  
-}
-@media (max-width: 900px) {
-  .search-form {
-    display: flex;
-    position: absolute;     
-    right: 16px;            
-    top: 50%;               
-    transform: translateY(-50%);
-    margin-left: 0;
-
-  }
-}
-
-
 #searchResults {
   position: absolute;
   background: white;
   width: 180px;
-  top: calc(100% + 5px);         
+  top: calc(100% + 5px);
   right: 0;
   border-radius: 4px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -174,11 +158,10 @@ header {
   overflow-y: auto;
 }
 
-
 #searchResults a {
   display: block;
   padding: 10px;
-  color: #0A2A66 !important;
+  color: #0A2A66;
   text-decoration: none;
   font-size: 0.9rem;
   border-bottom: 1px solid #eee;
@@ -191,14 +174,18 @@ header {
   font-size: 0.8rem;
 }
 
+/* =====================
+   HERO
+===================== */
 .hero {
-  padding: 30px 8%; 
-  min-height: 300px; 
+  padding: 30px 8%;
+  min-height: 300px;
   display: block;
-  align-items: center; 
+  align-items: center;
   background: #5fa3f2;
   margin-top: 0;
 }
+
 .hero-content {
   max-width: 440px;
 }
@@ -214,13 +201,14 @@ header {
   font-size: 18px;
   color: #0c0c0c;
 }
+
 .hero .row {
   width: 100%;
   margin: 0;
 }
 
 .hero .container {
-    padding-right: 0;   
+  padding-right: 0;
 }
 
 .buttons {
@@ -249,30 +237,37 @@ header {
   transform: translateY(-2px);
 }
 
+/* =====================
+   IMAGE SLIDER
+===================== */
 .image-slider {
-  width: 450px;        
-  height: 300px;       
+  width: 100%;
+  max-width: 450px;
+  height: 300px;
   position: relative;
-  margin-left: auto;   
+  margin-left: auto;
 }
 
 .about-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;   
+  object-fit: contain;
   display: none;
 }
-
 
 .slider-img.active {
   display: block;
 }
 
 .slider-small {
-  width: 70%;     
+  width: 70%;
   height: 70%;
-  margin: auto;    
+  margin: auto;
 }
+
+/* =====================
+   ABOUT
+===================== */
 .about {
   padding: 60px 8%;
   background: #F5F6FA;
@@ -293,17 +288,15 @@ summary {
 summary:hover {
   text-decoration: underline;
 }
-.search-form {
-  display: flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
+
+/* =====================
+   FOOTER
+===================== */
 .footer {
   background-color: #0A2A66;
   color: white;
-  padding: 12px 40px;
+  padding: 24px 40px;
 }
-
 
 .footer-grid {
   display: flex;
@@ -311,7 +304,6 @@ summary:hover {
   align-items: flex-start;
   gap: 40px;
 }
-
 
 .footer-col h6 {
   font-size: 0.85rem;
@@ -330,29 +322,16 @@ summary:hover {
   margin-bottom: 4px;
 }
 
-/* right alignment */
 .footer-right {
   text-align: right;
 }
 
-.social-row {
-  display: flex;          
-  align-items: center;
-  justify-content: flex-end; 
-  gap: 12px;
-}
-
-
-
-/* icons */
-
 .social-icons {
-  display: flex;          
+  display: flex;
   align-items: center;
   gap: 10px;
+  justify-content: flex-end;
 }
-
-
 
 .social-icons img {
   width: 32px;
@@ -363,18 +342,9 @@ summary:hover {
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-
 #img_f {
   width: 25px;
   height: 25px;
-  
-}
-
-.social-row {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 12px;
 }
 
 .social-icons img:hover {
@@ -382,22 +352,28 @@ summary:hover {
   opacity: 0.85;
 }
 
+.footer-base {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  font-size: 0.75rem;
+}
+
+.footer-base span {
+  justify-self: center;
+}
 
 .back-to-top {
-  font-size: 0.75rem;
-  text-decoration: none;
   color: #ffffff;
+  text-decoration: none;
+  font-size: 0.75rem;
 }
 
 .back-to-top:hover {
   text-decoration: underline;
-}
-
-/* bottom line */
-.footer-bottom {
-  margin-top: 8px;
-  font-size: 0.75rem;
-  text-align: center;
 }
 
 .bank-section h2 {
@@ -405,3 +381,326 @@ summary:hover {
   margin-bottom: 10px;
 }
 
+/* =====================================
+   LOAN PRODUCTS – PRODUCT PAGE
+===================================== */
+section.container > img:first-of-type {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 32px;
+  object-position: center 70%;
+}
+.input-valid {
+  border-color: #198754;
+  box-shadow: 0 0 0 3px rgba(25,135,84,0.15);
+}
+
+.input-error {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220,53,69,0.15);
+}
+@media (max-width: 1200px) {
+  section.container > img:first-of-type {
+    object-position: center 60%;
+    height: 280px;
+  }
+}
+
+
+section.container h2 {
+  color: #0A2A66;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+section.container .row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+section.container .col-md-6 {
+  width: 100%;
+  max-width: 100%;
+}
+
+section.container .card {
+  height: 100%;
+  border-radius: 14px;
+  border: 1px solid #e6e8ec;
+  background: #fff;
+}
+
+section.container .card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+section.container .loan-img {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+section.container .card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0A2A66;
+  margin-bottom: 8px;
+}
+
+section.container .card-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #495057;
+  margin-bottom: 14px;
+}
+
+section.container .card-body > details:last-of-type {
+  margin-top: auto;
+}
+
+section.container details summary {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0A2A66;
+  cursor: pointer;
+}
+
+section.container details ul {
+  font-size: 0.82rem;
+  padding-left: 18px;
+  margin-top: 8px;
+}
+
+section.container .loan-form input {
+  font-size: 0.85rem;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+}
+
+section.container .loan-form button {
+  font-size: 0.85rem;
+  padding: 8px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* =====================================
+   TABLET — 601px to 992px
+   Full nav visible, no hamburger,
+   product cards go to 2 columns
+===================================== */
+@media (max-width: 992px) and (min-width: 601px) {
+
+  section.container .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  header {
+    padding: 12px 16px;
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+
+  /* No hamburger on tablet */
+  .nav-toggle {
+    display: none !important;
+  }
+
+  /* Nav always visible on tablet */
+  .nav1 {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav1 a {
+    font-size: 12px;
+  }
+
+  /* Sign-in dropdown: use fixed so it never gets clipped */
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown-content {
+    position: absolute;
+    top: auto;
+    left: 50%;
+    right: auto;
+    width: 220px;
+    z-index: 99999;
+    max-width: 90vw;
+    transform: translateX(-50%);
+
+  }
+
+  #searchInput {
+    width: 90px;
+  }
+
+  #searchResults {
+    position: fixed;
+    right: 16px;
+    left: auto;
+    z-index: 99999;
+  }
+}
+
+/* =====================================
+   MOBILE — 600px and below
+   Hamburger menu, collapsible nav
+===================================== */
+@media (max-width: 600px) {
+
+  /* Header wraps logo + hamburger on first row,
+     nav drops below when open */
+  header {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+    gap: 8px;
+  }
+
+  /* Show hamburger on mobile only */
+  .nav-toggle {
+    display: block !important;
+    margin-left: auto;
+    background: none;
+    border: 1px solid white;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  /* Search stays on same row as logo + hamburger */
+  .search-form {
+    order: 3;          /* push after hamburger in the flex row */
+    margin-left: 0;
+    flex-shrink: 0;
+  }
+
+  #searchInput {
+    width: 80px;
+    font-size: 0.85rem;
+  }
+
+  #searchResults {
+    position: fixed;
+    width: 180px;
+    right: 16px;
+    left: auto;
+    z-index: 99999;
+  }
+
+  /* Nav hidden by default, shown when .open is toggled by JS */
+  .nav1 {
+    display: none !important;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 10px;
+    padding: 10px 0;
+    order: 4;          /* always below the header row */
+  }
+
+  .nav1.open {
+    display: flex !important;
+  }
+
+  .nav1 a {
+    font-size: 14px;
+  }
+
+  /* Sign-in dropdown goes static/inline on mobile
+     so it's never clipped by overflow */
+  .nav-dropdown {
+    flex-direction: column;
+    width: 100%;
+    position: static;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .nav-dropdown-content {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 8px;
+    background: #ffffff;
+    margin-top: 8px;
+    padding: 16px;
+    z-index: auto;
+  }
+
+  /* Hero */
+  .hero h1 { font-size: 22px; }
+  .hero p  { font-size: 15px; }
+
+  .buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #btn1, #btn2 {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 20px 16px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    flex-direction: unset;
+  }
+
+  .footer-right { text-align: left; }
+  .social-icons { justify-content: flex-start; }
+
+  .footer-base {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+}
+
+/* =====================================
+   SMALL MOBILE — 576px and below
+===================================== */
+@media (max-width: 576px) {
+
+  section.container .row {
+    grid-template-columns: 1fr;
+  }
+
+  .about {
+    padding: 30px 5%;
+  }
+}
+
+.loan-img {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.loan-img:hover {
+  transform: scale(1.05);
+}
