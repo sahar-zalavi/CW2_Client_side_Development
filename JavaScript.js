@@ -1,113 +1,275 @@
 $(document).ready(function () {
 
-  // =====================
+  
+  // REGEX PATTERNS 
+ 
+
+  const usernameRegex  = /^[a-zA-Z0-9]{4,20}$/;
+  const emailRegex     = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const passwordRegex  = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+  const studentIdRegex = /^[Bb]\d{8}$/;
+  const nameRegex      = /^[A-Za-z\s]{2,50}$/;
+  const numberRegex    = /^[0-9]+(\.[0-9]{1,2})?$/;
+
+
+ 
   // HAMBURGER MENU
-  // =====================
+
+
   $("#navToggle").on("click", function () {
     $("#mainNav").toggleClass("open");
   });
 
-  // Close nav when a link is clicked on mobile
   $("#mainNav a").not("#signInBtn, #signUpBtn, #signOutBtn").on("click", function () {
-  if ($(window).width() <= 768) {
-    $("#mainNav").removeClass("open");
-  }
-});
-  // =====================
-  // VALIDATION RULES
-  // =====================
-  const usernameRegex = /^[a-zA-Z0-9]{4,20}$/;
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+    if ($(window).width() <= 768) {
+      $("#mainNav").removeClass("open");
+    }
+  });
 
-  // =====================
+
+ 
   // SIGN IN / SIGN UP DROPDOWNS
-  // =====================
+
+
   $("#signInBtn, #signUpBtn").on("click", function (e) {
     e.preventDefault();
     e.stopPropagation();
 
     const isSignIn = this.id === "signInBtn";
-    const target = isSignIn ? "#signInBox" : "#signUpBox";
-    const other  = isSignIn ? "#signUpBox" : "#signInBox";
+    const target   = isSignIn ? "#signInBox" : "#signUpBox";
+    const other    = isSignIn ? "#signUpBox" : "#signInBox";
+
+    if (isSignIn) {
+      const saved = localStorage.getItem("lastUsername");
+      if (saved) {
+        $("#loginUsername").val(saved);
+        setTimeout(function () { $("#loginPassword").focus(); }, 50);
+      }
+    }
 
     $(other).hide();
     $(target).stop().toggle();
   });
 
-  // Close dropdowns when clicking outside
   $(document).on("click", function (e) {
     if (!$(e.target).closest(".nav-dropdown").length) {
       $(".nav-dropdown-content").hide();
     }
   });
 
-  // Prevent clicks inside the form from closing the dropdown
   $(".nav-dropdown-content").on("click", function (e) {
     e.stopPropagation();
   });
 
-  // =====================
+
+ 
   // SIGN IN SUBMISSION
-  // =====================
+ 
+
   $("#signInForm").on("submit", function (e) {
     e.preventDefault();
+
+    const form = $(this);
     const user = $("#loginUsername").val().trim();
     const pass = $("#loginPassword").val();
 
-    if (!usernameRegex.test(user)) {
-      return alert("Username must be 4–20 letters or numbers.");
-    }
-    if (!passwordRegex.test(pass)) {
-      return alert("Password is not strong enough.");
-    }
+    form.find(".signin-error, .signin-success").remove();
 
-    $("#signInBox").hide();
-    $("#signInBtn").text("Account").css("pointer-events", "none");
-    $("#signOutBtn").show();
-    alert("Signed in successfully!");
+    const showSignInError = function (msg) {
+      form.append('<p class="signin-error" style="color:red;font-size:0.85rem;margin-top:8px;">⚠️ ' + msg + "</p>");
+    };
+
+    if (!usernameRegex.test(user)) return showSignInError("Username must be 4–20 letters or numbers.");
+    if (!passwordRegex.test(pass)) return showSignInError("Password is not strong enough.");
+
+    localStorage.setItem("lastUsername", user);
+    form.append('<p class="signin-success" style="color:green;font-size:0.9rem;margin-top:8px;">✅ Signed in successfully!</p>');
+
+    setTimeout(function () {
+      form.find(".signin-success").remove();
+      form[0].reset();
+      $("#signInBox").hide();
+      $("#signInBtn").text("Account").css("pointer-events", "none");
+      $("#signOutBtn").show();
+    }, 1500);
   });
 
-  // =====================
+
+
   // SIGN OUT
-  // =====================
+
+
   $("#signOutBtn").on("click", function (e) {
     e.preventDefault();
-    $("#signInBtn").text("Sign in").css("pointer-events", "auto");
+
     $("#signOutBtn").hide();
     $("#loginUsername").val("");
     $("#loginPassword").val("");
     $("#signInBox, #signUpBox").hide();
     localStorage.removeItem("lastUsername");
-    alert("Signed out.");
+
+    var $btn = $("#signInBtn");
+    $btn.text("Signed out").css({ "pointer-events": "none", "color": "green" });
+    setTimeout(function () {
+      $btn.text("Sign in").css({ "pointer-events": "auto", "color": "" });
+    }, 1500);
   });
 
-  // =====================
+
   // SIGN UP SUBMISSION
-  // =====================
+
+
   $("#signUpForm").on("submit", function (e) {
     e.preventDefault();
-    const vals = {
-      user:  $("#signupUsername").val().trim(),
-      email: $("#signupEmail").val().trim(),
-      pass:  $("#signupPassword").val(),
-      conf:  $("#confirmPassword").val()
+
+    const form  = $(this);
+    const user  = $("#signupUsername").val().trim();
+    const email = $("#signupEmail").val().trim();
+    const pass  = $("#signupPassword").val();
+    const conf  = $("#confirmPassword").val();
+
+    form.find(".signup-error, .signup-success").remove();
+
+    const showError = function (msg) {
+      form.append('<p class="signup-error" style="color:red;font-size:0.85rem;margin-top:8px;">⚠️ ' + msg + "</p>");
     };
 
-    if (!usernameRegex.test(vals.user))  return alert("Username: 4-20 alphanumeric characters.");
-    if (!emailRegex.test(vals.email))    return alert("Please enter a valid email.");
-    if (!passwordRegex.test(vals.pass))  return alert("Password must be strong (8+ chars, upper, lower, digit, symbol).");
-    if (vals.pass !== vals.conf)         return alert("Passwords do not match!");
+    if (!usernameRegex.test(user))  return showError("Username must be 4–20 alphanumeric characters.");
+    if (!emailRegex.test(email))    return showError("Please enter a valid email address.");
+    if (!passwordRegex.test(pass))  return showError("Password must be 8+ chars with upper, lower, digit & symbol.");
+    if (pass !== conf)              return showError("Passwords do not match.");
 
-    alert("Account created successfully!");
-    $("#signUpBox").hide();
+    form.append('<p class="signup-success" style="color:green;font-size:0.9rem;margin-top:8px;">✅ Account created successfully!</p>');
+
+    setTimeout(function () {
+      form[0].reset();
+      form.find(".signup-success").fadeOut(400, function () { $(this).remove(); });
+      $("#signUpBox").hide();
+    }, 2000);
   });
 
-  // =====================
+
+ 
+  // MONEY INPUT 
+
+
+  $(".money-input").on("focus", function () {
+    this.value = this.value.replace(/[^0-9.]/g, "");
+  });
+
+  $(".money-input").on("blur", function () {
+    let value = this.value.replace(/[^0-9.]/g, "");
+
+    const parts = value.split(".");
+    if (parts.length > 2) value = parts[0] + "." + parts[1];
+
+    const number = parseFloat(value);
+    if (!isNaN(number) && value !== "") {
+      this.value = number.toLocaleString("en-GB", {
+        style: "currency",
+        currency: "GBP",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    } else {
+      this.value = "";
+    }
+  });
+
+
+ 
+  // STUDENT
+
+
+  $("#studentId").on("input", function () {
+    const value = this.value.toUpperCase();
+    this.value  = value;
+
+    if (value.length === 0) {
+      $("#studentIdError").hide();
+      $(this).css("border-color", "");
+      return;
+    }
+
+    if (!studentIdRegex.test(value)) {
+      $("#studentIdError").show();
+      $(this).css("border-color", "red");
+    } else {
+      $("#studentIdError").hide();
+      $(this).css("border-color", "green");
+    }
+  });
+
+
+ 
+  // LOAN FORM SUBMISSION 
+ 
+
+  $(".loan-form").on("submit", function (e) {
+    e.preventDefault();
+
+    const form    = $(this);
+    let   isValid = true;
+
+    form.find(".success-text, .error-text").hide();
+    form.find("input").css("border-color", "");
+
+    form.find("input[required]").each(function () {
+      const input      = $(this);
+      const value      = input.val().trim();
+      const type       = input.attr("type");
+      const ph         = (input.attr("placeholder") || "").toLowerCase();
+      let   fieldValid = true;
+
+      if (value === "") {
+        fieldValid = false;
+      } else {
+        if (ph.includes("name")) {
+          if (!nameRegex.test(value)) fieldValid = false;
+        }
+        if (type === "email") {
+          if (!emailRegex.test(value)) fieldValid = false;
+        }
+        if (input.hasClass("money-input") || type === "number") {
+          const raw = value.replace(/[^0-9.]/g, "");
+          if (!numberRegex.test(raw) || Number(raw) <= 0) fieldValid = false;
+        }
+        if (input.hasClass("studentId") || input.attr("id") === "studentId") {
+          if (!studentIdRegex.test(value)) {
+            fieldValid = false;
+            form.find(".studentIdError").show();
+          }
+        }
+      }
+
+      input.css("border-color", fieldValid ? "green" : "red");
+      if (!fieldValid) isValid = false;
+    });
+
+    if (!isValid) {
+      form.find(".error-text").fadeIn();
+      return;
+    }
+
+    form.find(".success-text").fadeIn();
+
+    setTimeout(function () {
+      form[0].reset();
+      form.find("input").css("border-color", "");
+    }, 1000);
+
+    setTimeout(function () {
+      form.find(".success-text").fadeOut();
+    }, 3000);
+  });
+
+
+
   // SEARCH
-  // =====================
+
+
   $("#searchInput").on("input", function () {
-    const query = $(this).val().toLowerCase().trim();
+    const query    = $(this).val().toLowerCase().trim();
     const $results = $("#searchResults").empty();
 
     if (query.length < 2) return;
@@ -121,35 +283,37 @@ $(document).ready(function () {
             e.preventDefault();
             $("html, body").animate({ scrollTop: $el.offset().top - 100 }, 500);
             $el.css("background", "yellow");
-            setTimeout(() => $el.css("background", "none"), 2000);
+            setTimeout(function () { $el.css("background", "none"); }, 2000);
           })
           .appendTo($results);
       }
     });
 
-    if ($results.is(":empty")) $results.append("<p>No results found</p>");
+    if ($results.is(":empty")) {
+      $results.append("<p>No results found</p>");
+    }
   });
 
-  // =====================
+
   // IMAGE SLIDER
-  // =====================
-  let index = 0;
-  const slides = $(".slider-img");
 
-  setInterval(function () {
-    slides.removeClass("active");
-    index = (index + 1) % slides.length;
-    slides.eq(index).addClass("active");
-  }, 3000);
 
-  // =====================
-  // TRUST / JOURNEY TOGGLES
-  // =====================
-  $(document).ready(function () {
+  let sliderIndex = 0;
+  const $slides   = $(".slider-img");
 
-  // =====================
-  // TRUST / JOURNEY (unchanged)
-  // =====================
+  if ($slides.length) {
+    setInterval(function () {
+      $slides.removeClass("active");
+      sliderIndex = (sliderIndex + 1) % $slides.length;
+      $slides.eq(sliderIndex).addClass("active");
+    }, 3000);
+  }
+
+
+  
+  // TRUST TOGGLE & JOURNEY BUTTONS
+ 
+
   $(".trust-toggle").on("click", function () {
     $(".trust-points").slideToggle();
   });
@@ -157,113 +321,6 @@ $(document).ready(function () {
   $(".journey-btn").on("click", function () {
     $(".journey-text").hide();
     $($(this).data("target")).fadeIn();
-  });
-
-  // =====================
-  // REGEX PATTERNS
-  // =====================
-  const nameRegex = /^[A-Za-z\s]{2,50}$/;
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const numberRegex = /^[0-9]+(\.[0-9]{1,2})?$/;
-  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
-  $(document).ready(function () {
-
-  // =====================
-  // REGEX PATTERNS
-  // =====================
-  const nameRegex = /^[A-Za-z\s]{2,50}$/;
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const numberRegex = /^[0-9]+(\.[0-9]{1,2})?$/;
-  const studentIdRegex = /^[A-Za-z0-9]{5,15}$/;
-
-  // =====================
-  // LIVE VALIDATION (WHILE TYPING)
-  // =====================
-  $(".loan-form input").on("input", function () {
-    const input = $(this);
-    const value = input.val().trim();
-    const type = input.attr("type");
-    let isValid = true;
-
-    // Required check
-    if (input.prop("required") && value === "") {
-      isValid = false;
-    }
-
-    // Name validation
-    if (input.attr("placeholder")?.toLowerCase().includes("name")) {
-      isValid = nameRegex.test(value);
-    }
-
-    // Email validation
-    if (type === "email") {
-      isValid = emailRegex.test(value);
-    }
-
-    // Student ID validation
-    if (input.attr("id") === "studentId") {
-      isValid = studentIdRegex.test(value);
-    }
-
-    // Loan amount / number validation
-    if (type === "number" || input.attr("placeholder")?.includes("£")) {
-      isValid = numberRegex.test(value) && Number(value) > 0;
-    }
-
-    // Visual feedback
-    input.removeClass("input-valid input-error");
-    if (value !== "") {
-      input.addClass(isValid ? "input-valid" : "input-error");
-    }
-  });
-
-  // =====================
-  // LOAN FORM SUBMISSION
-  // =====================
-  $(".loan-form").on("submit", function (e) {
-    e.preventDefault();
-
-    const form = $(this);
-    let isValid = true;
-
-    // Hide messages
-    form.find(".error-text").hide();
-    form.find(".success-text").hide();
-
-    form.find("input[required]").each(function () {
-      const input = $(this);
-      const value = input.val().trim();
-      const type = input.attr("type");
-
-      if (value === "") isValid = false;
-
-      if (input.attr("placeholder")?.toLowerCase().includes("name")) {
-        if (!nameRegex.test(value)) isValid = false;
-      }
-
-      if (type === "email") {
-        if (!emailRegex.test(value)) isValid = false;
-      }
-
-      if (type === "number" || input.attr("placeholder")?.includes("£")) {
-        if (!numberRegex.test(value) || Number(value) <= 0) isValid = false;
-      }
-
-      if (input.attr("id") === "studentId") {
-        if (!studentIdRegex.test(value)) isValid = false;
-      }
-    });
-
-    // Final result
-    if (!isValid) {
-      form.find(".error-text").fadeIn();
-    } else {
-    form.closest("details").next(".success-text").fadeIn();
- 
-      form[0].reset();
-      form.find("input").removeClass("input-valid input-error");
-    }
   });
 
 });
