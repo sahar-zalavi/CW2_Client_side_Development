@@ -704,12 +704,16 @@ SUPPORT PAGE STYLES
   background: linear-gradient(135deg, #5fa3f2 0%, #0A2A66 100%);
 }
 
-.support-hero h1 {
-  color: #ffffff;
+.support-hero .hero-content h1 {
+  font-size: 32px;
+  line-height: 1.2;
+  color: #0a1f44;
+  margin-bottom: 10px;
 }
 
-.support-hero p {
-  color: rgba(255, 255, 255, 0.9);
+.support-hero .hero-content p {
+  font-size: 18px;
+  color: #0c0c0c;
 }
 
 /* Support Cards Grid */
