@@ -88,7 +88,7 @@
     terms, helping customers manage important expenses responsibly.
   </p>
 
-  <!-- ✅ ROW WRAPPER START -->
+  
   <div class="row">
 
     <!-- student loan -->
@@ -119,21 +119,28 @@
 
           <details>
             <summary>Apply Online</summary>
-            <form class="loan-form student-form mt-3">
+            <form class="loan-form student-form mt-3" id="formId" novalidate>
+
               <input type="text" class="form-control" placeholder="Full Name" required>
-              <input type="email" class="form-control" placeholder="Email Address" required>
-              <input type="text" class="form-control" placeholder="Student ID e.g. B20231234"  required>
+
+              <input type="email" name="email" class="form-control" placeholder="Email Address" autocomplete="email" required>
+              <input type="text" id="studentId"  class="form-control" placeholder="Student ID e.g. B20231234"   maxlength="9" required>
+               
+              
+              <small id="studentIdError" style="color:red; display:none;">
+                Student ID must be B followed by 8 digits (e.g. B20231234)
+              </small>
+
               <button type="submit" class="btn btn-primary w-100">
                 Submit Application
               </button>
-              <div class="success-text" style="display:none; color:green; font-size:0.9rem; margin-top:10px;">
-              ✅ Your application has been submitted successfully. We will contact you shortly.
+
+              <div class="success-text" style="display:none; color:green; margin-top:10px;">
+                ✅ Your application has been submitted successfully.
               </div>
 
-              <div class="error-text" style="display:none; color:red; font-size:0.85rem;">
-                Please enter valid details.
-              </div>
             </form>
+
            
           </details>
 
@@ -173,9 +180,9 @@
             <form class="loan-form mt-3">
                 <input type="text" class="form-control" placeholder="Business Name" required>
                 <input type="text" class="form-control" placeholder="Applicant Full Name" required>
-                <input type="email" class="form-control" placeholder="Email Address" required>
+                <input type="email" name="email" class="form-control" placeholder="Email Address"   autocomplete="email"  required>
                 <input type="text" class="form-control" placeholder="Company Reg. No.">
-                <input type="number" class="form-control" placeholder="Loan Amount(£)">
+                <input type="text" class="form-control money-input" placeholder="Loan Amount(£)">
                 <button type="submit" class="btn btn-primary w-100">
                   Submit Application
                 </button>
@@ -223,10 +230,10 @@
            <summary>Apply Online</summary>
               <form class="loan-form mt-3">
                 <input type="text" class="form-control" placeholder="Full Name" required>
-                <input type="email" class="form-control" placeholder="Email Address" required>
-                <input type="number" class="form-control" placeholder="Property Value (£)">
-                <input type="number" class="form-control" placeholder="Deposit Amount (£)">
-                <input type="number" class="form-control" placeholder="Annual Income (£)">
+                <input type="email" name="email" class="form-control" placeholder="Email Address"   autocomplete="email"  required>
+                <input type="text" class="form-control money-input" placeholder="Property Value (£)">
+                <input type="text" class="form-control money-input" placeholder="Deposit Amount (£)">
+                <input type="text" class="form-control money-input" placeholder="Annual Income (£)">
                 <button type="submit" class="btn btn-primary w-100">
                   Submit Application
                 </button>
@@ -261,21 +268,24 @@
         <li>Credit Cards</li>
         <li>Savings</li>
         <li>Loans</li>
-        <li>Student Loans</li>
-        <li>Business Loans</li>
-        <li>Mortgage</li>
+        <li><a href="product.html#student-loan">Student Loans</a></li>
+        <li><a href="product.html#business-loan">Business Loans</a></li>
+        <li><a href="product.html#mortgage-loan">Mortgage</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
-      <h6>Support</h6>
-      <ul>
-        <li>Help Centre</li>
-        <li>Mobile Banking</li>
-        <li>Service Status</li>
-        <li>Fraud Protection</li>
-      </ul>
-    </div>
+  <h6>Support</h6>
+  <ul>
+    <li><a href="support.html">Support Centre</a></li>
+    <li><a href="support.html#account-help">Account Help</a></li>
+    <li><a href="support.html#card-support">Card Support</a></li>
+    <li><a href="support.html#payments-support">Payments & Transfers</a></li>
+    <li><a href="support.html#mobile-support">Mobile & Online Banking</a></li>
+    <li><a href="support.html#faq-section">FAQs</a></li>
+    <li><a href="support.html#contact-section">Contact Support</a></li>
+  </ul>
+</div>
 
     <div class="footer-col">
       <h6>Contact Us</h6>
