@@ -19,6 +19,7 @@ body {
   color: #2C2C2C;
 }
 
+/* HEADER */
 header {
   display: flex;
   align-items: center;
@@ -41,6 +42,7 @@ header {
 .nav-links {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -76,6 +78,7 @@ header button:hover {
   transform: translateY(-2px);
 }
 
+/* HERO */
 .hero {
   background: #5fa3f2;
   padding: 60px 8%;
@@ -115,6 +118,7 @@ header button:hover {
   margin-bottom: 20px;
 }
 
+/* MAIN CONTENT */
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -170,6 +174,7 @@ header button:hover {
   margin: 0;
 }
 
+/* ACCOUNT CARDS */
 .account-card {
   background: white;
   border: 1px solid #dde2ee;
@@ -226,6 +231,7 @@ header button:hover {
   color: #888;
 }
 
+/* TRANSACTIONS */
 .transaction {
   background: #ffffff;
   border: 1px solid #e6e9f2;
@@ -240,6 +246,7 @@ header button:hover {
   background: #f4f7ff;
 }
 
+/* MODALS */
 .modal-content {
   border-radius: 12px;
   overflow: hidden;
@@ -297,6 +304,7 @@ header button:hover {
   margin-bottom: 12px;
 }
 
+/* BUTTONS */
 .btn-primary {
   display: block;
   width: 100%;
@@ -337,6 +345,7 @@ header button:hover {
   display: none !important;
 }
 
+/* FOOTER */
 .footer {
   background: #0A2A66;
   color: white;
@@ -366,6 +375,16 @@ header button:hover {
   margin-bottom: 10px;
   font-size: 0.95rem;
   color: #dbe4ff;
+}
+
+.footer-col a {
+  color: #dbe4ff;
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  color: white;
+  text-decoration: underline;
 }
 
 .social-icons {
@@ -410,6 +429,7 @@ header button:hover {
   text-decoration: underline;
 }
 
+/* TABLET */
 @media (max-width: 900px) {
   .hero-layout {
     flex-direction: column;
@@ -425,10 +445,16 @@ header button:hover {
   }
 }
 
+/* MOBILE */
 @media (max-width: 600px) {
   header {
     padding: 12px 16px;
     gap: 12px;
+  }
+
+  .logo-text {
+    width: 100%;
+    text-align: center;
   }
 
   .nav-links {
@@ -441,6 +467,7 @@ header button:hover {
     margin-left: 0;
     width: 100%;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .hero {
