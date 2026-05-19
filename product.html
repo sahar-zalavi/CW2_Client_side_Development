@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.png">
+
+  <title>Unity Bank</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="stylesheet.css">
+
+  <script src="jquery-4.0.0.js"></script>
+  <script src="JavaScript.js"></script>
+
+</head>
+
+<body id="top">
+
+<header class="d-flex align-items-center px-4 py-3">
+
+  <!-- Logo -->
+  <img src="images/bank_logo.png" alt="Unity Bank Logo" class="logo">
+
+  <!-- Hamburger Button -->
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+
+  <!-- Navigation -->
+  <nav class="nav1" id="mainNav">
+
+    <a href="home.html">Home</a>
+    <a href="accounts.html">Accounts</a>
+    <a href="transfers.html">Transfers</a>
+    <a href="support.html">Support</a>
+    <a href="product.html">Our Products</a>
+
+    <!-- Sign in -->
+    <div class="nav-dropdown">
+      <a href="#" id="signInBtn">Sign in</a>
+      <a href="#" id="signOutBtn" style="display: none; color: #ff4d4d; margin-left: 10px;">Sign out</a>
+      <div class="nav-dropdown-content" id="signInBox">
+        <form id="signInForm">
+          <input type="text" id="loginUsername" placeholder="Username" autocomplete="username" required>
+          <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" required>
+          <button type="submit">Sign in</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Sign up -->
+    <div class="nav-dropdown">
+      <a href="#" id="signUpBtn">Sign up</a>
+      <div class="nav-dropdown-content" id="signUpBox">
+        <form id="signUpForm">
+          <input type="text" id="signupUsername" placeholder="Username" required>
+          <input type="email" id="signupEmail" placeholder="Email" required>
+          <input type="password" id="signupPassword" placeholder="Password" required>
+          <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="ms-auto">
+      <form class="search-form">
+        <input type="search" id="searchInput" placeholder="Search">
+        <div id="searchResults"></div>
+      </form>
+    </div>
+
+  </nav>
+
+</header>
+
+<section class="container my-5">
+  <img src="images/Loans.webp" alt="Loan image">
+  <h2 class="mb-4 text-primary">Our Loan Products</h2>
+  <p class="text-muted mb-5">
+    Unity Bank offers a range of loan products to support customers with
+    education, business growth, and long‑term financial commitments.
+    Our loan options are designed to assist customers with a variety of
+    financial needs. These loans provide structured borrowing with clear
+    terms, helping customers manage important expenses responsibly.
+  </p>
+
+  
+  <div class="row">
+
+    <!-- student loan -->
+    <div class="col-md-6 mb-4" id="student-loan">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+
+          <img src="images/Student-Loans.jpg" class="loan-img img-fluid" alt="Student loan image">
+
+          <h5 class="card-title">Student Loans</h5>
+
+          <p class="card-text">
+            Student loans support individuals pursuing higher education by helping
+            cover tuition fees, accommodation, and essential living costs. Unity
+            Bank structures these loans with consideration for students’ future
+            financial circumstances.
+          </p>
+
+          <details class="mb-3">
+            <summary>Eligibility</summary>
+            <ul>
+              <li>Must be 18 years or older</li>
+              <li>Enrolled in a recognised institution</li>
+              <li>UK residency required</li>
+              <li>Proof of student status</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Apply Online</summary>
+            <form class="loan-form student-form mt-3" id="formId" novalidate>
+
+              <input type="text" class="form-control" placeholder="Full Name" required>
+
+              <input type="email" name="email" class="form-control" placeholder="Email Address" autocomplete="email" required>
+              <input type="text" id="studentId"  class="form-control" placeholder="Student ID e.g. B20231234"   maxlength="9" required>
+               
+              
+              <small id="studentIdError" style="color:red; display:none;">
+                Student ID must be B followed by 8 digits (e.g. B20231234)
+              </small>
+
+              <button type="submit" class="btn btn-primary w-100">
+                Submit Application
+              </button>
+
+              <div class="success-text" style="display:none; color:green; margin-top:10px;">
+                ✅ Your application has been submitted successfully.
+              </div>
+
+            </form>
+
+           
+          </details>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Business Loan -->
+    <div class="col-md-6 mb-4" id="business-loan">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+
+          <img src="images/business_loans.webp" class="loan-img img-fluid" alt="Business loan image">
+
+          <h5 class="card-title">Business Loans</h5>
+
+          <p class="card-text">
+            Business loans are designed to support small and medium‑sized enterprises
+            by providing funding for growth, equipment investment, and operational
+            needs, helping businesses maintain financial stability.
+          </p>
+
+          <details class="mb-3">
+            <summary>Eligibility</summary>
+            <ul>
+              <li>Minimum deposit required</li>
+              <li>Stable income or employment</li>
+              <li>Credit history assessment</li>
+              <li>Property valuation required</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Apply Online</summary>
+           <summary>Apply Online</summary>
+            <form class="loan-form mt-3">
+                <input type="text" class="form-control" placeholder="Business Name" required>
+                <input type="text" class="form-control" placeholder="Applicant Full Name" required>
+                <input type="email" name="email" class="form-control" placeholder="Email Address"   autocomplete="email"  required>
+                <input type="text" class="form-control" placeholder="Company Reg. No.">
+                <input type="text" class="form-control money-input" placeholder="Loan Amount(£)">
+                <button type="submit" class="btn btn-primary w-100">
+                  Submit Application
+                </button>
+                 <div class="success-text" style="display:none; color:green; font-size:0.9rem; margin-top:10px;">
+                    ✅ Your application has been submitted successfully. We will contact you shortly.
+                  </div>
+
+                  <div class="error-text" style="display:none; color:red; font-size:0.85rem;">
+                    Please enter valid details.
+                  </div>
+            </form>
+
+          </details>
+
+        </div>
+      </div>
+    </div>
+   
+    <!-- mortgage -->
+    <div class="col-md-6 mb-4" id="mortgage-loan">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+
+          <img src="images/mortgage.avif" class="loan-img img-fluid" alt="Mortgage image">
+
+          <h5 class="card-title">Mortgage</h5>
+
+          <p class="card-text">
+            Mortgage products help customers purchase or refinance residential
+            property through long‑term financing solutions. Unity Bank supports
+            customers throughout the home‑buying journey with clear guidance.
+          </p>
+
+          <details class="mb-3">
+            <summary>Eligibility</summary>
+            <ul>
+              <li>Minimum deposit required</li>
+              <li>Stable income or employment</li>
+              <li>Property valuation assessment</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Apply Online</summary>
+           <summary>Apply Online</summary>
+              <form class="loan-form mt-3">
+                <input type="text" class="form-control" placeholder="Full Name" required>
+                <input type="email" name="email" class="form-control" placeholder="Email Address"   autocomplete="email"  required>
+                <input type="text" class="form-control money-input" placeholder="Property Value (£)">
+                <input type="text" class="form-control money-input" placeholder="Deposit Amount (£)">
+                <input type="text" class="form-control money-input" placeholder="Annual Income (£)">
+                <button type="submit" class="btn btn-primary w-100">
+                  Submit Application
+                </button>
+                <div class="success-text" style="display:none; color:green; font-size:0.9rem; margin-top:10px;">
+                  ✅ Your application has been submitted successfully. We will contact you shortly.
+                </div>
+
+                <div class="error-text" style="display:none; color:red; font-size:0.85rem;">
+                  Please enter valid details.
+                </div>
+
+
+              </form>
+          </details>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+ 
+     
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+
+    <div class="footer-col">
+      <h6>Our Products</h6>
+      <ul>
+        <li>Bank Accounts</li>
+        <p class="footer-description">
+  Unity Bank offers flexible bank account options designed for everyday banking,
+  secure online transactions, and easy money management for personal and business customers.
+</p>
+        <li>Credit Cards</li> 
+        <p class="footer-description">
+  Our credit card services provide convenient payment solutions, spending control,
+  and secure purchasing features to support both online and in-store transactions.
+</p>
+        <li>Savings</li>
+        <p class="footer-description">
+  Savings products are designed to help customers build financial security through
+  reliable interest options and long-term money management opportunities.
+</p>
+        <li>Loans</li>
+        <li><a href="product.html#student-loan">Student Loans</a></li>
+     <h5 class="card-title">Student Loans</h5>
+
+<p class="card-text">
+  Student loans support individuals pursuing higher education by helping
+  cover tuition fees, accommodation, and essential living costs. Unity
+  Bank structures these loans with consideration for students’ future
+  financial circumstances.
+</p>
+        <p class="card-text">
+  These loans are intended to reduce financial pressure during academic studies,
+  allowing students to focus more effectively on their education and personal
+  development. Flexible repayment options may also be available after graduation,
+  helping borrowers transition into employment before beginning repayments.
+</p>
+        <li><a href="product.html#business-loan">Business Loans</a></li>
+        <h5 class="card-title">Business Loans</h5>
+
+<p class="card-text">
+  Business loans are designed to support small and medium-sized enterprises
+  by providing funding for growth, equipment investment, and operational
+  needs, helping businesses maintain financial stability.
+</p>
+
+<p class="card-text">
+  Unity Bank understands the challenges faced by growing businesses and aims to
+  provide financial support tailored to different industries and operational goals.
+  Business loans can be used for expansion projects, technology upgrades, staffing,
+  or improving day-to-day cash flow management.
+</p>
+        <li><a href="product.html#mortgage-loan">Mortgage</a></li>
+        <h5 class="card-title">Mortgage</h5>
+
+<p class="card-text">
+  Mortgage products help customers purchase or refinance residential
+  property through long-term financing solutions. Unity Bank supports
+  customers throughout the home-buying journey with clear guidance.
+</p>
+
+<p class="card-text">
+  Our mortgage products are designed to support both first-time buyers and existing
+  homeowners seeking refinancing opportunities. With competitive repayment structures
+  and personalised support, Unity Bank helps customers make informed decisions about
+  long-term property investments.
+</p>
+        <li>Credit Cards</li>
+<p class="footer-description">
+  Our credit card services provide convenient payment solutions, spending control,
+  and secure purchasing features to support both online and in-store transactions.
+</p> 
+        <li>Classic Debit Card</li>
+<p class="footer-description">
+  The Classic Debit Card allows customers to make secure everyday purchases
+  directly from their account, offering full spending control and real-time
+  transaction tracking.
+</p>
+
+        <li>Rewards Credit Card</li>
+<p class="footer-description">
+  Our Rewards Credit Card lets customers earn points on every purchase,
+  which can be redeemed for travel, shopping, or cashback benefits.
+</p>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+  <h6>Support</h6>
+  <ul>
+    <li><a href="support.html">Support Centre</a></li>
+    <li><a href="support.html#account-help">Account Help</a></li>
+    <li><a href="support.html#card-support">Card Support</a></li>
+    <li><a href="support.html#payments-support">Payments & Transfers</a></li>
+    <li><a href="support.html#mobile-support">Mobile & Online Banking</a></li>
+    <li><a href="support.html#faq-section">FAQs</a></li>
+    <li><a href="support.html#contact-section">Contact Support</a></li>
+  </ul>
+</div>
+
+    <div class="footer-col">
+      <h6>Contact Us</h6>
+      <ul>
+        <li>📞 +44 20 7123 4567</li>
+        <li>📧 support@unitybank.co.uk</li>
+        <li>🕘 Mon–Fri: 9am–5pm</li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-right">
+      <h6>Follow Us</h6>
+      <div class="social-icons">
+        <a href="#"><img src="images/facebook2.png" id="img_f" alt="Facebook"></a>
+        <a href="#"><img src="images/twitter.webp" alt="Twitter"></a>
+        <a href="#"><img src="images/Linkedin2.png" alt="LinkedIn"></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-base">
+    <a href="#top" class="back-to-top">↑ Back to top</a>
+    <span>© 2026 Unity Bank. All rights reserved.</span>
+  </div>
+
+</footer>
+
+</body>
+</html>
