@@ -1,9 +1,18 @@
+<<<<<<< HEAD
+/* =============================================
+   UNITY BANK — style.css
+   ============================================= */
+
+=======
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+<<<<<<< HEAD
+=======
 html {
   scroll-behavior: smooth;
 }
@@ -13,12 +22,18 @@ img {
   height: auto;
 }
 
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
 body {
   font-family: 'Roboto', Arial, sans-serif;
   background-color: #F5F6FA;
   color: #2C2C2C;
 }
 
+<<<<<<< HEAD
+
+/* ── HEADER ───────────────────────────────── */
+=======
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
 header {
   display: flex;
   align-items: center;
@@ -53,11 +68,75 @@ header {
   text-decoration: underline;
 }
 
+<<<<<<< HEAD
+
+/* ── HEADER SEARCH ────────────────────────── */
+.search-wrap {
+  position: relative;
+  margin-left: auto; /* pushes search + auth to the right */
+}
+
+.search-wrap input {
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 200px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.search-wrap input:focus {
+  border-color: #a0b4d6;
+}
+
+/* Dropdown search results */
+#searchResults {
+  position: absolute;
+  top: 38px;
+  right: 0;
+  background: white;
+  width: 200px;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#searchResults a {
+  display: block;
+  padding: 10px;
+  color: #0A2A66;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #eee;
+}
+
+#searchResults a:hover {
+  background: #f0f4ff;
+}
+
+#searchResults p {
+  padding: 10px;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+
+/* ── HEADER BUTTONS ───────────────────────── */
+#headerGuest,
+#headerUser {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+=======
 .auth-buttons {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-left: auto;
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
 }
 
 header button {
@@ -67,7 +146,11 @@ header button {
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
+<<<<<<< HEAD
+  transition: background-color 0.2s ease, transform 0.2s ease;
+=======
   transition: 0.2s ease;
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
   background-color: white;
   color: #0A2A66;
 }
@@ -76,11 +159,25 @@ header button:hover {
   transform: translateY(-2px);
 }
 
+<<<<<<< HEAD
+#welcomeMsg {
+  color: white;
+  font-size: 0.9rem;
+}
+
+
+/* ── HERO ─────────────────────────────────── */
+=======
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
 .hero {
   background: #5fa3f2;
   padding: 60px 8%;
 }
 
+<<<<<<< HEAD
+.hero-content {
+  max-width: 480px;
+=======
 .hero-layout {
   display: flex;
   justify-content: space-between;
@@ -98,23 +195,62 @@ header button:hover {
 
 .hero-content {
   max-width: 700px;
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
 }
 
 .hero h1 {
   font-size: 2rem;
   color: #0a1f44;
+<<<<<<< HEAD
+  margin-bottom: 10px;
+=======
   margin-bottom: 16px;
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
   line-height: 1.2;
 }
 
 .hero p {
+<<<<<<< HEAD
+  font-size: 1.1rem;
+=======
   max-width: 700px;
   line-height: 1.8;
   font-size: 1rem;
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
   color: #0c0c0c;
   margin-bottom: 20px;
 }
 
+<<<<<<< HEAD
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+#btn1,
+#btn2 {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 8px;
+  background-color: #0A2A66;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#btn1:hover,
+#btn2:hover {
+  background-color: #5A4FCF;
+  transform: translateY(-2px);
+}
+
+
+/* ── MAIN / ACCOUNTS ──────────────────────── */
+=======
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -127,6 +263,10 @@ header button:hover {
   margin-bottom: 20px;
 }
 
+<<<<<<< HEAD
+/* Row of open-account + transfer buttons */
+=======
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
 .action-bar {
   display: flex;
   flex-wrap: wrap;
@@ -135,6 +275,10 @@ header button:hover {
   align-items: center;
 }
 
+<<<<<<< HEAD
+/* Account type buttons */
+=======
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
 .account-btn {
   background-color: #0A2A66;
   color: white;
@@ -143,7 +287,11 @@ header button:hover {
   border-radius: 8px;
   font-weight: 500;
   cursor: pointer;
+<<<<<<< HEAD
+  transition: background-color 0.2s ease, transform 0.2s ease;
+=======
   transition: 0.2s ease;
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
 }
 
 .account-btn:hover {
@@ -151,10 +299,341 @@ header button:hover {
   transform: translateY(-2px);
 }
 
+<<<<<<< HEAD
+/* Account cards grid */
+.accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.account-card {
+  background: white;
+  border: 1px solid #dde2ee;
+  border-radius: 10px;
+  padding: 18px;
+  transition: box-shadow 0.2s ease;
+}
+
+.account-card:hover {
+  box-shadow: 0 4px 14px rgba(10, 42, 102, 0.12);
+}
+
+.account-card .badge {
+  display: inline-block;
+  background: #e8edf8;
+  color: #0A2A66;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 99px;
+  margin-bottom: 10px;
+}
+
+.account-card .balance {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0A2A66;
+}
+
+.account-card .acc-name {
+  font-size: 0.82rem;
+  color: #777;
+  margin-top: 4px;
+}
+
+.muted {
+  color: #888;
+}
+
+
+/* ── ABOUT SECTION ────────────────────────── */
+.about {
+  background: #F5F6FA;
+  padding: 60px 8%;
+  border-top: 1px solid #dde2ee;
+}
+
+.about h2 {
+  color: #0A2A66;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.about p {
+  font-size: 1rem;
+  margin-bottom: 16px;
+  max-width: 600px;
+}
+
+details {
+  margin-top: 12px;
+  max-width: 600px;
+}
+
+summary {
+  cursor: pointer;
+  color: #0A2A66;
+  font-weight: 600;
+}
+
+summary:hover {
+  text-decoration: underline;
+}
+
+details p {
+  margin-top: 8px;
+  padding-left: 12px;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+
+/* ── MODALS ───────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1rem;
+}
+
+.modal-box {
+  background: white;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 420px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.2s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.modal-header {
+  background: #0A2A66;
+  color: white;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-header h5 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.7);
+  font-size: 1.1rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: white;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+/* Tab bar inside auth modal */
+.tab-bar {
+  display: flex;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 16px;
+}
+
+.tab-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tab-btn.active {
+  color: #0A2A66;
+  border-bottom-color: #0A2A66;
+}
+
+/* Form inputs inside modals */
+.modal-body input,
+.modal-body select {
+  display: block;
+  width: 100%;
+  padding: 9px 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.modal-body input:focus,
+.modal-body select:focus {
+  border-color: #0A2A66;
+}
+
+.modal-body label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.form-error {
+  background: #fde8eb;
+  color: #b5192d;
+  border: 1px solid #f5c2c7;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+
+/* ── SHARED BUTTON COLOURS ────────────────── */
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: #0A2A66;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover { background: #0d3580; }
+
+.btn-gold {
+  background: #c9a84c !important;
+  color: #0a1f44 !important;
+}
+
+.btn-gold:hover { background: #b8953f !important; }
+
+.btn-green {
+  background: #2d6a4f;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-left: auto;
+}
+
+.btn-green:hover {
+  background: #245740;
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background: #b5192d !important;
+  color: white !important;
+}
+
+.btn-danger:hover { background: #9e1526 !important; }
+
+
+/* ── UTILITY ──────────────────────────────── */
+.hidden {
+  display: none !important;
+}
+
+
+/* ── RESPONSIVE ───────────────────────────── */
+@media (max-width: 600px) {
+  header {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .nav-links { display: none; } /* hide nav links on small screens */
+
+  .search-wrap { margin-left: 0; }
+
+  .hero { padding: 40px 6%; }
+
+  .container { padding: 30px 16px; }
+}
+
+/* =============================================
+   UNITY BANK — COURSEWORK ENHANCEMENTS (ADD-ON)
+   Additions ONLY (safe to append to existing CSS)
+   ============================================= */
+
+/* ===== ACCOUNT CARD IMPROVEMENTS ===== */
+.account-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.account-card .info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* clearer balance emphasis */
+.account-card .balance {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0A2A66;
+}
+
+/* ===== REMOVE BUTTON (COURSEWORK FEATURE) ===== */
+.remove-btn {
+  background: #b5192d;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.remove-btn:hover {
+  background: #9e1526;
+  transform: translateY(-2px);
+}
+
+/* ===== TOTAL BALANCE BOX ===== */
+=======
 .accounts-grid {
   display: block;
 }
 
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
 .total-box {
   background: white;
   border-radius: 12px;
@@ -170,6 +649,9 @@ header button:hover {
   margin: 0;
 }
 
+<<<<<<< HEAD
+/* ===== TRANSACTION LEDGER ===== */
+=======
 .account-card {
   background: white;
   border: 1px solid #dde2ee;
@@ -226,6 +708,7 @@ header button:hover {
   color: #888;
 }
 
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
 .transaction {
   background: #ffffff;
   border: 1px solid #e6e9f2;
@@ -240,6 +723,21 @@ header button:hover {
   background: #f4f7ff;
 }
 
+<<<<<<< HEAD
+/* ===== BUTTON POLISH ===== */
+.account-btn,
+.transfer-button {
+  transition: 0.2s ease;
+}
+
+.account-btn:hover,
+.transfer-button:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== MODAL IMPROVEMENTS ===== */
+=======
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
 .modal-content {
   border-radius: 12px;
   overflow: hidden;
@@ -251,6 +749,18 @@ header button:hover {
   font-weight: 600;
 }
 
+<<<<<<< HEAD
+/* ===== FORM FOCUS STATE ===== */
+.modal-body input:focus,
+.modal-body select:focus {
+  outline: none;
+  border: 1px solid #0A2A66;
+  box-shadow: 0 0 5px rgba(10, 42, 102, 0.2);
+}
+
+/* ===== RESPONSIVE TWEAKS ===== */
+@media (max-width: 600px) {
+=======
 .modal-body {
   padding: 20px;
 }
@@ -455,11 +965,47 @@ header button:hover {
     width: 100%;
   }
 
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
   .account-card {
     flex-direction: column;
     align-items: flex-start;
   }
 
+<<<<<<< HEAD
+  .remove-btn {
+    width: 100%;
+  }
+}
+ 
+
+.account-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+/* Make all account buttons consistent */
+.account-buttons button {
+  min-width: 190px;
+  padding: 12px 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect for better UI marks */
+.account-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(10, 42, 102, 0.2);
+}
+
+/* Mobile fix */
+@media (max-width: 600px) {
+  .account-buttons button {
+    width: 100%;
+=======
   .account-card button {
     width: 100%;
   }
@@ -474,5 +1020,6 @@ header button:hover {
 
   .social-icons {
     justify-content: center;
+>>>>>>> 3f97b2ecdcacf49a2f5090d762f63a943bd4c83f
   }
 }
