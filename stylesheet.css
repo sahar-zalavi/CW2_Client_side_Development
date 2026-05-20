@@ -18,6 +18,8 @@ img {
   height: auto;
 }
 
+/* HEADER */
+
 header {
   background-color: #0A2A66;
   padding: 15px 30px;
@@ -29,7 +31,6 @@ header {
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid rgba(255,255,255,0.15);
-  overflow: visible;
 }
 
 .logo {
@@ -43,8 +44,8 @@ header {
   background: transparent;
   color: white;
   border: 1px solid rgba(255,255,255,0.4);
-  border-radius: 4px;
-  font-size: 1.5rem;
+  border-radius: 2px;
+  font-size: 1.3rem;
   padding: 4px 10px;
   cursor: pointer;
 }
@@ -61,10 +62,10 @@ header {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.95rem;
 }
 
-.nav1 a:hover,
-.nav1 a:focus {
+.nav1 a:hover {
   text-decoration: underline;
 }
 
@@ -80,31 +81,11 @@ header {
   top: 100%;
   right: 0;
   background: white;
-  min-width: 230px;
-  padding: 14px;
-  border-radius: 6px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  min-width: 220px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
   z-index: 2000;
-}
-
-.nav-dropdown-content input,
-.dropdown-content input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 8px;
-  border: 1px solid #bbb;
-  border-radius: 4px;
-}
-
-.nav-dropdown-content button,
-.dropdown-content button {
-  width: 100%;
-  background: #123c7c;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
 }
 
 .nav-dropdown.open .nav-dropdown-content,
@@ -114,6 +95,26 @@ header {
   display: block;
 }
 
+.nav-dropdown-content input,
+.dropdown-content input {
+  width: 100%;
+  padding: 7px;
+  margin-bottom: 8px;
+  border: 1px solid #bbb;
+}
+
+.nav-dropdown-content button,
+.dropdown-content button {
+  width: 100%;
+  background: #123c7c;
+  color: white;
+  border: 1px solid #0A2A66;
+  padding: 7px;
+  cursor: pointer;
+}
+
+/* SEARCH */
+
 .search-form {
   margin-left: auto;
   position: relative;
@@ -121,10 +122,8 @@ header {
 
 .search-form input {
   padding: 7px 12px;
-  border: 1px solid #ccd3df;
-  border-radius: 20px;
-  min-width: 180px;
-  outline: none;
+  border: 1px solid #bbb;
+  min-width: 170px;
 }
 
 #searchResults {
@@ -134,14 +133,26 @@ header {
   background: white;
   color: #222;
   width: 220px;
-  border-radius: 6px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+  border: 1px solid #ccc;
   z-index: 3000;
 }
 
+#searchResults a {
+  display: block;
+  padding: 8px;
+  color: #222;
+  text-decoration: none;
+}
+
+#searchResults a:hover {
+  background: #f0f0f0;
+}
+
+/* HERO */
+
 .hero {
-  background: linear-gradient(135deg, #d9e8ff, #f5f9ff);
-  padding: 45px 8%;
+  background: #eaf1fb;
+  padding: 40px 8%;
 }
 
 .hero-layout {
@@ -156,7 +167,7 @@ header {
 .hero h1 {
   color: #123c7c;
   margin-top: 0;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 2.7rem);
 }
 
 .hero p {
@@ -165,9 +176,10 @@ header {
 }
 
 .hero-image img {
-  width: 350px;
-  border-radius: 12px;
+  width: 320px;
 }
+
+/* MAIN CONTENT */
 
 .container {
   max-width: 1100px;
@@ -177,7 +189,7 @@ header {
 
 .section-title {
   color: #123c7c;
-  margin: 0 0 18px;
+  margin-bottom: 18px;
 }
 
 .action-bar {
@@ -187,15 +199,17 @@ header {
   margin-bottom: 22px;
 }
 
+/* BUTTONS */
+
 .account-btn,
 .btn-primary {
   background: #123c7c;
   color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 5px;
+  border: 1px solid #0A2A66;
+  padding: 8px 14px;
+  border-radius: 2px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .account-btn:hover,
@@ -206,37 +220,34 @@ header {
 .btn-danger {
   background: #b00020;
   color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
+  border: 1px solid #7d0016;
+  padding: 7px 10px;
+  border-radius: 2px;
   cursor: pointer;
 }
 
 .btn-success {
   background: #1f6f3f;
   color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
+  border: 1px solid #15522d;
+  padding: 7px 10px;
+  border-radius: 2px;
   cursor: pointer;
 }
 
 .btn-sm {
-  font-size: 0.85rem;
-  padding: 6px 10px;
+  font-size: 0.82rem;
 }
 
 .btn-close {
   background: none;
   border: none;
   color: white;
-  font-size: 1.4rem;
-  line-height: 1;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
-/* ACCOUNT CONTENT
-   Fits into the main website instead of replacing it */
+/* ACCOUNT SECTION */
 
 .accounts-grid {
   display: grid;
@@ -248,8 +259,8 @@ header {
 .transaction,
 .modal-content {
   border: 1px solid #d7dce5;
-  border-radius: 8px;
-  box-shadow: 0 4px 14px rgba(10, 42, 102, 0.08);
+  border-radius: 3px;
+  box-shadow: none;
   background: white;
 }
 
@@ -274,23 +285,23 @@ header {
 .account-card .info {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
 .badge {
-  background: #e7efff;
+  background: #dfe6f2;
   color: #123c7c;
-  padding: 4px 9px;
+  padding: 3px 7px;
   width: fit-content;
-  font-size: 0.8rem;
-  border-radius: 999px;
-  font-weight: 700;
+  font-size: 0.75rem;
+  border-radius: 2px;
+  font-weight: 600;
 }
 
 .balance {
   font-weight: bold;
   color: #123c7c;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .transaction {
@@ -298,12 +309,16 @@ header {
   margin-bottom: 10px;
 }
 
-.muted {
-  color: #777;
-}
+/* FORMS */
 
-.mt-2 {
-  margin-top: 8px;
+.form-error {
+  display: block;
+  background: #ffe5e5;
+  color: #900;
+  border: 1px solid #cc9999;
+  padding: 7px;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
 }
 
 .d-none,
@@ -311,18 +326,7 @@ header {
   display: none !important;
 }
 
-.form-error {
-  display: block;
-  background: #ffe5e5;
-  color: #900;
-  border: 1px solid #cc9999;
-  border-radius: 4px;
-  padding: 7px;
-  margin-bottom: 10px;
-  font-size: 0.85rem;
-}
-
-/* MODALS / POPUPS */
+/* MODALS */
 
 .modal {
   display: none;
@@ -346,15 +350,10 @@ header {
 .modal-header {
   background: #0A2A66;
   color: white;
-  padding: 13px 16px;
+  padding: 12px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 8px 8px 0 0;
-}
-
-.modal-header h5 {
-  margin: 0;
 }
 
 .modal-body {
@@ -369,10 +368,9 @@ header {
 .modal-body input,
 .modal-body select {
   width: 100%;
-  padding: 9px;
+  padding: 8px;
   margin-bottom: 10px;
   border: 1px solid #aaa;
-  border-radius: 4px;
 }
 
 .modal-body label {
@@ -380,9 +378,79 @@ header {
   font-size: 0.9rem;
 }
 
+/* FOOTER */
+
+.footer {
+  background: #0A2A66;
+  color: white;
+  padding: 40px 8% 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.footer-col h6 {
+  margin-bottom: 14px;
+  font-size: 1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col li {
+  margin-bottom: 8px;
+  font-size: 0.92rem;
+}
+
+.footer-col a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+}
+
+.footer-base {
+  border-top: 1px solid rgba(255,255,255,0.2);
+  margin-top: 30px;
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.back-to-top {
+  color: white;
+  text-decoration: none;
+}
+
+.back-to-top:hover {
+  text-decoration: underline;
+}
+
 /* TABLET */
 
 @media (max-width: 850px) {
+
   header {
     flex-wrap: wrap;
   }
@@ -396,26 +464,11 @@ header {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
   }
 
   .nav1 a {
     font-size: 12px;
-  }
-
-  .nav-dropdown {
-    position: relative;
-  }
-
-  .nav-dropdown-content {
-    position: absolute;
-    top: auto;
-    left: 50%;
-    right: auto;
-    width: 220px;
-    z-index: 99999;
-    max-width: 90vw;
-    transform: translateX(-50%);
   }
 
   #searchInput {
@@ -425,7 +478,6 @@ header {
   #searchResults {
     position: fixed;
     right: 16px;
-    left: auto;
     z-index: 99999;
   }
 }
@@ -433,6 +485,7 @@ header {
 /* MOBILE */
 
 @media (max-width: 600px) {
+
   header {
     flex-wrap: wrap;
     padding: 12px 16px;
@@ -442,34 +495,12 @@ header {
   .nav-toggle {
     display: block;
     margin-left: auto;
-    background: none;
-    border: 1px solid white;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    padding: 4px 10px;
-    border-radius: 4px;
-    flex-shrink: 0;
   }
 
   .search-form {
     order: 3;
     margin-left: 0;
     width: 100%;
-    flex-shrink: 0;
-  }
-
-  #searchInput {
-    width: 80px;
-    font-size: 0.85rem;
-  }
-
-  #searchResults {
-    position: fixed;
-    width: 180px;
-    right: 16px;
-    left: auto;
-    z-index: 99999;
   }
 
   .nav1 {
@@ -494,7 +525,6 @@ header {
     position: static;
     width: 100%;
     margin-top: 8px;
-    transform: none;
   }
 
   .hero-layout {
@@ -502,13 +532,8 @@ header {
     text-align: center;
   }
 
-  .hero p {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   .hero-image img {
-    width: 280px;
+    width: 260px;
   }
 
   .account-card {
@@ -517,5 +542,10 @@ header {
 
   .action-bar button {
     width: 100%;
+  }
+
+  .footer-base {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
