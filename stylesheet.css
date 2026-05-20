@@ -1,9 +1,3 @@
-/* =========================================================
-   UNITY BANK — MAIN WEBSITE FIRST
-   This stylesheet keeps the existing Unity Bank website design
-   as the priority, then fits the Accounts/Transfers features into it.
-   ========================================================= */
-
 * {
   box-sizing: border-box;
 }
@@ -24,11 +18,6 @@ img {
   height: auto;
 }
 
-/* =========================
-   HEADER / MAIN NAVIGATION
-   Matches the main Unity Bank website
-   ========================= */
-
 header {
   background-color: #0A2A66;
   padding: 15px 30px;
@@ -40,6 +29,7 @@ header {
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid rgba(255,255,255,0.15);
+  overflow: visible;
 }
 
 .logo {
@@ -78,7 +68,6 @@ header {
   text-decoration: underline;
 }
 
-/* Main-site dropdown naming */
 .nav-dropdown,
 .dropdown {
   position: relative;
@@ -125,7 +114,6 @@ header {
   display: block;
 }
 
-/* Search stays inside the nav without taking over the layout */
 .search-form {
   margin-left: auto;
   position: relative;
@@ -150,11 +138,6 @@ header {
   box-shadow: 0 8px 20px rgba(0,0,0,0.18);
   z-index: 3000;
 }
-
-/* =========================
-   HERO
-   Uses the main website blue/white style
-   ========================= */
 
 .hero {
   background: linear-gradient(135deg, #d9e8ff, #f5f9ff);
@@ -186,10 +169,6 @@ header {
   border-radius: 12px;
 }
 
-/* =========================
-   PAGE CONTAINERS
-   ========================= */
-
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -207,10 +186,6 @@ header {
   gap: 10px;
   margin-bottom: 22px;
 }
-
-/* =========================
-   BUTTONS
-   ========================= */
 
 .account-btn,
 .btn-primary {
@@ -260,10 +235,8 @@ header {
   cursor: pointer;
 }
 
-/* =========================
-   ACCOUNT CONTENT
-   Fits into the main website instead of replacing it
-   ========================= */
+/* ACCOUNT CONTENT
+   Fits into the main website instead of replacing it */
 
 .accounts-grid {
   display: grid;
@@ -349,15 +322,7 @@ header {
   font-size: 0.85rem;
 }
 
-#infoPopupText {
-  white-space: pre-wrap;
-  font-family: Arial, sans-serif;
-}
-
-/* =========================
-   MODALS / POPUPS
-   Works without Bootstrap JS
-   ========================= */
+/* MODALS / POPUPS */
 
 .modal {
   display: none;
@@ -415,9 +380,7 @@ header {
   font-size: 0.9rem;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+/* TABLET */
 
 @media (max-width: 850px) {
   header {
@@ -429,7 +392,88 @@ header {
   }
 
   .nav1 {
-    display: none;
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav1 a {
+    font-size: 12px;
+  }
+
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown-content {
+    position: absolute;
+    top: auto;
+    left: 50%;
+    right: auto;
+    width: 220px;
+    z-index: 99999;
+    max-width: 90vw;
+    transform: translateX(-50%);
+  }
+
+  #searchInput {
+    width: 90px;
+  }
+
+  #searchResults {
+    position: fixed;
+    right: 16px;
+    left: auto;
+    z-index: 99999;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  header {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+    gap: 8px;
+  }
+
+  .nav-toggle {
+    display: block;
+    margin-left: auto;
+    background: none;
+    border: 1px solid white;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .search-form {
+    order: 3;
+    margin-left: 0;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  #searchInput {
+    width: 80px;
+    font-size: 0.85rem;
+  }
+
+  #searchResults {
+    position: fixed;
+    width: 180px;
+    right: 16px;
+    left: auto;
+    z-index: 99999;
+  }
+
+  .nav1 {
+    display: none !important;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
@@ -438,12 +482,7 @@ header {
   }
 
   .nav1.open {
-    display: flex;
-  }
-
-  .search-form {
-    margin-left: 0;
-    width: 100%;
+    display: flex !important;
   }
 
   .search-form input {
@@ -455,6 +494,7 @@ header {
     position: static;
     width: 100%;
     margin-top: 8px;
+    transform: none;
   }
 
   .hero-layout {
