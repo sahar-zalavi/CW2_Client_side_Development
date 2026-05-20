@@ -270,7 +270,7 @@ $(document).ready(function () {
 
   $("#searchInput").on("input", function () {
     const query    = $(this).val().toLowerCase().trim();
-    const $results = $("#searchResults").empty();
+    const $results = $("#searchResults").show().empty();
 
     if (query.length < 2) return;
 
@@ -281,6 +281,10 @@ $(document).ready(function () {
           .text($el.text().substring(0, 40) + "...")
           .on("click", function (e) {
             e.preventDefault();
+            
+            $("#searchResults").empty().hide();  
+            $("#searchInput").blur();   
+
             $("html, body").animate({ scrollTop: $el.offset().top - 100 }, 500);
             $el.css("background", "yellow");
             setTimeout(function () { $el.css("background", "none"); }, 2000);
@@ -311,16 +315,6 @@ $(document).ready(function () {
 
 
   
-  // TRUST TOGGLE & JOURNEY BUTTONS
- 
-
-  $(".trust-toggle").on("click", function () {
-    $(".trust-points").slideToggle();
-  });
-
-  $(".journey-btn").on("click", function () {
-    $(".journey-text").hide();
-    $($(this).data("target")).fadeIn();
-  });
+  
 
 });
