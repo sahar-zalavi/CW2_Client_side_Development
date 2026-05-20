@@ -5,33 +5,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Favicon -->
   <link rel="icon" href="images/favicon.png">
 
-  <title>Unity Bank</title>
+  <title>Unity Bank - Accounts</title>
 
-  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="bootstrap.min.css">
-
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="stylesheet.css">
 
   <script src="jquery-4.0.0.js"></script>
   <script src="JavaScript.js"></script>
-
 </head>
 
 <body id="top">
 
 <header class="d-flex align-items-center px-4 py-3">
 
-  <!-- Logo -->
   <img src="images/bank_logo.png" alt="Unity Bank Logo" class="logo">
 
-  <!-- Hamburger Button -->
   <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
 
-  <!-- Navigation -->
   <nav class="nav1" id="mainNav">
 
     <a href="home.html">Home</a>
@@ -40,10 +32,10 @@
     <a href="support.html">Support</a>
     <a href="product.html">Our Products</a>
 
-    <!-- Sign in -->
     <div class="nav-dropdown">
       <a href="#" id="signInBtn">Sign in</a>
       <a href="#" id="signOutBtn" style="display: none; color: #ff4d4d; margin-left: 10px;">Sign out</a>
+
       <div class="nav-dropdown-content" id="signInBox">
         <form id="signInForm">
           <input type="text" id="loginUsername" placeholder="Username" autocomplete="username" required>
@@ -53,14 +45,19 @@
       </div>
     </div>
 
-    <!-- Sign up -->
     <div class="nav-dropdown">
       <a href="#" id="signUpBtn">Sign up</a>
+
       <div class="nav-dropdown-content" id="signUpBox">
         <form id="signUpForm">
           <input type="text" id="signupUsername" placeholder="Username" required>
-          <input type="email" id="signupEmail" placeholder="Email" required>
+          <input type="email" id="signupEmail" placeholder="Email" autocomplete="email" required>
           <input type="password" id="signupPassword" placeholder="Password" required>
+
+          <small id="passwordHelp" class="form-error d-none">
+            Password must be 8+ characters with uppercase, lowercase, number and symbol.
+          </small>
+
           <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
           <button type="submit">Sign up</button>
         </form>
@@ -75,8 +72,151 @@
     </div>
 
   </nav>
-
 </header>
+
+<section class="hero accounts-hero">
+  <div class="hero-layout">
+    <div class="hero-content">
+      <h1>Your Unity Bank Accounts</h1>
+      <p>Open accounts, view balances, transfer money, and manage your finances securely.</p>
+    </div>
+
+    <div class="hero-image">
+      <img src="images/saving.webp" alt="Savings image" class="secure_pic">
+    </div>
+  </div>
+</section>
+
+<section class="container" id="accountSection">
+  <h2 class="section-title">Your Accounts</h2>
+
+  <div class="action-bar">
+    <button class="account-btn open-account" data-type="Current Account">Current Account</button>
+    <button class="account-btn open-account" data-type="Savings Account">Savings Account</button>
+    <button class="account-btn open-account" data-type="Student Account">Student Account</button>
+    <button class="account-btn open-account" data-type="Business Account">Business Account</button>
+    <button class="account-btn open-account" data-type="Credit Card">Credit Card</button>
+    <button class="account-btn open-account" data-type="Mortgage">Mortgage</button>
+    <button class="account-btn transfer-button">Transfer Money</button>
+  </div>
+
+  <div class="total-box">
+    <h3>Total Balance</h3>
+    <h2 id="totalBalance">£0.00</h2>
+  </div>
+
+  <div id="accountList" class="accounts-grid"></div>
+</section>
+
+<section class="container" id="transactionSection">
+  <h2 class="section-title">Transaction History</h2>
+  <div id="transactionList"></div>
+</section>
+
+<div class="modal" id="infoPopup">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5>Account Information</h5>
+        <button type="button" class="btn-close" data-close="modal">×</button>
+      </div>
+
+      <div class="modal-body">
+        <pre id="infoPopupText"></pre>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-primary" id="continueAccountBtn">Continue</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="accountPopup">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 id="accountPopupTitle">Create Account</h5>
+        <button type="button" class="btn-close" data-close="modal">×</button>
+      </div>
+
+      <form id="accountForm">
+        <div class="modal-body">
+          <input type="hidden" id="accountType">
+
+          <label id="accountAmountLabel">Initial Deposit</label>
+          <input type="number" name="deposit" min="0" step="0.01" placeholder="Amount">
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn-primary" id="accountSubmitBtn">Create Account</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="transferPopup">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5>Transfer Money</h5>
+        <button type="button" class="btn-close" data-close="modal">×</button>
+      </div>
+
+      <form id="transferForm">
+        <div class="modal-body">
+          <label>From account</label>
+          <select id="fromAccount"></select>
+
+          <label>To account</label>
+          <select id="toAccount"></select>
+
+          <label>Amount</label>
+          <input type="number" id="transferAmount" min="0.01" step="0.01" required>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn-primary">Transfer</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="mortgagePaymentPopup">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5>Pay Mortgage</h5>
+        <button type="button" class="btn-close" data-close="modal">×</button>
+      </div>
+
+      <form id="mortgagePaymentForm">
+        <div class="modal-body">
+          <input type="hidden" id="mortgagePaymentAccountId">
+          <p id="mortgageRemainingText"></p>
+
+          <label>Payment amount</label>
+          <input type="number" id="mortgagePaymentAmount" min="0.01" step="0.01" required>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn-primary">Pay Mortgage</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
 <footer class="footer">
   <div class="footer-grid">
 
@@ -92,18 +232,18 @@
       </ul>
     </div>
 
-   <div class="footer-col">
-  <h6>Support</h6>
-  <ul>
-    <li><a href="support.html">Support Centre</a></li>
-    <li><a href="support.html#account-help">Account Help</a></li>
-    <li><a href="support.html#card-support">Card Support</a></li>
-    <li><a href="support.html#payments-support">Payments & Transfers</a></li>
-    <li><a href="support.html#mobile-support">Mobile & Online Banking</a></li>
-    <li><a href="support.html#faq-section">FAQs</a></li>
-    <li><a href="support.html#contact-section">Contact Support</a></li>
-  </ul>
-</div> 
+    <div class="footer-col">
+      <h6>Support</h6>
+      <ul>
+        <li><a href="support.html">Support Centre</a></li>
+        <li><a href="support.html#account-help">Account Help</a></li>
+        <li><a href="support.html#card-support">Card Support</a></li>
+        <li><a href="support.html#payments-support">Payments & Transfers</a></li>
+        <li><a href="support.html#mobile-support">Mobile & Online Banking</a></li>
+        <li><a href="support.html#faq-section">FAQs</a></li>
+        <li><a href="support.html#contact-section">Contact Support</a></li>
+      </ul>
+    </div>
 
     <div class="footer-col">
       <h6>Contact Us</h6>
@@ -129,7 +269,6 @@
     <a href="#top" class="back-to-top">↑ Back to top</a>
     <span>© 2026 Unity Bank. All rights reserved.</span>
   </div>
-
 </footer>
 
 </body>
