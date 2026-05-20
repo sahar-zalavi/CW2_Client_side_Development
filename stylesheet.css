@@ -549,3 +549,195 @@ header {
     align-items: flex-start;
   }
 }
+
+
+.accounts-page .accounts-hero {
+  background: #eaf1fb;
+  padding: 40px 8%;
+}
+
+.accounts-page #accountSection,
+.accounts-page #transactionSection {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 35px 20px;
+}
+
+.accounts-page .section-title {
+  color: #123c7c;
+  margin-bottom: 18px;
+}
+
+.accounts-page .action-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.accounts-page .account-btn,
+.accounts-page .btn-primary {
+  background: #123c7c;
+  color: white;
+  border: 1px solid #0A2A66;
+  padding: 8px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.accounts-page .account-btn:hover,
+.accounts-page .btn-primary:hover {
+  background: #0A2A66;
+}
+
+.accounts-page .accounts-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.accounts-page .total-box,
+.accounts-page .account-card,
+.accounts-page .transaction,
+.accounts-page .modal-content {
+  border: 1px solid #d7dce5;
+  border-radius: 3px;
+  background: white;
+  box-shadow: none;
+}
+
+.accounts-page .total-box {
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.accounts-page .total-box h2,
+.accounts-page .total-box h3 {
+  color: #123c7c;
+  margin: 0;
+}
+
+.accounts-page .account-card {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.accounts-page .account-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.accounts-page .badge {
+  background: #dfe6f2;
+  color: #123c7c;
+  padding: 3px 7px;
+  width: fit-content;
+  font-size: 0.75rem;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+.accounts-page .balance {
+  font-weight: bold;
+  color: #123c7c;
+  font-size: 1.1rem;
+}
+
+.accounts-page .transaction {
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.accounts-page .btn-danger {
+  background: #b00020;
+  color: white;
+  border: 1px solid #7d0016;
+  padding: 7px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.accounts-page .btn-success {
+  background: #1f6f3f;
+  color: white;
+  border: 1px solid #15522d;
+  padding: 7px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.accounts-page .btn-sm {
+  font-size: 0.82rem;
+}
+
+.accounts-page .modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  padding: 35px 15px;
+  z-index: 4000;
+  overflow-y: auto;
+}
+
+.accounts-page .modal.show {
+  display: block;
+}
+
+.accounts-page .modal-dialog {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.accounts-page .modal-header {
+  background: #0A2A66;
+  color: white;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accounts-page .modal-body {
+  padding: 16px;
+}
+
+.accounts-page .modal-footer {
+  padding: 12px 16px;
+  border-top: 1px solid #d7dce5;
+}
+
+.accounts-page .modal-body input,
+.accounts-page .modal-body select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #aaa;
+}
+
+.accounts-page .modal-body label {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .accounts-page .account-card {
+    flex-direction: column;
+  }
+
+  .accounts-page .action-bar button {
+    width: 100%;
+  }
+
+  .accounts-page .accounts-hero .hero-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .accounts-page .accounts-hero .hero-image img {
+    width: 260px;
+  }
+}
