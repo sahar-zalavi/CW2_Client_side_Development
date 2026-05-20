@@ -89,7 +89,7 @@
   </p>
 
   
-  <div class="row">
+<div class="row">
 
     <!-- student loan -->
     <div class="col-md-6 mb-4" id="student-loan">
@@ -103,7 +103,7 @@
           <p class="card-text">
             Student loans support individuals pursuing higher education by helping
             cover tuition fees, accommodation, and essential living costs. Unity
-            Bank structures these loans with consideration for students’ future
+            Bank structures these loans with consideration for students' future
             financial circumstances.
           </p>
 
@@ -122,11 +122,9 @@
             <form class="loan-form student-form mt-3" id="formId" novalidate>
 
               <input type="text" class="form-control" placeholder="Full Name" required>
-
               <input type="email" name="email" class="form-control" placeholder="Email Address" autocomplete="email" required>
-              <input type="text" id="studentId"  class="form-control" placeholder="Student ID e.g. B20231234"   maxlength="9" required>
-               
-              
+              <input type="text" id="studentId" class="form-control" placeholder="Student ID e.g. B20231234" maxlength="9" required>
+
               <small id="studentIdError" style="color:red; display:none;">
                 Student ID must be B followed by 8 digits (e.g. B20231234)
               </small>
@@ -140,14 +138,11 @@
               </div>
 
             </form>
-
-           
           </details>
 
         </div>
       </div>
     </div>
-    
 
     <!-- Business Loan -->
     <div class="col-md-6 mb-4" id="business-loan">
@@ -176,32 +171,29 @@
 
           <details>
             <summary>Apply Online</summary>
-           <summary>Apply Online</summary>
             <form class="loan-form mt-3">
-                <input type="text" class="form-control" placeholder="Business Name" required>
-                <input type="text" class="form-control" placeholder="Applicant Full Name" required>
-                <input type="email" name="email" class="form-control" placeholder="Email Address"   autocomplete="email"  required>
-                <input type="text" class="form-control" placeholder="Company Reg. No.">
-                <input type="text" class="form-control money-input" placeholder="Loan Amount(£)">
-                <button type="submit" class="btn btn-primary w-100">
-                  Submit Application
-                </button>
-                 <div class="success-text" style="display:none; color:green; font-size:0.9rem; margin-top:10px;">
-                    ✅ Your application has been submitted successfully. We will contact you shortly.
-                  </div>
-
-                  <div class="error-text" style="display:none; color:red; font-size:0.85rem;">
-                    Please enter valid details.
-                  </div>
+              <input type="text" class="form-control" placeholder="Business Name" required>
+              <input type="text" class="form-control" placeholder="Applicant Full Name" required>
+              <input type="email" name="email" class="form-control" placeholder="Email Address" autocomplete="email" required>
+              <input type="text" class="form-control" placeholder="Company Reg. No.">
+              <input type="text" class="form-control money-input" placeholder="Loan Amount(£)">
+              <button type="submit" class="btn btn-primary w-100">
+                Submit Application
+              </button>
+              <div class="success-text" style="display:none; color:green; font-size:0.9rem; margin-top:10px;">
+                ✅ Your application has been submitted successfully. We will contact you shortly.
+              </div>
+              <div class="error-text" style="display:none; color:red; font-size:0.85rem;">
+                Please enter valid details.
+              </div>
             </form>
-
           </details>
 
         </div>
       </div>
     </div>
-   
-    <!-- mortgage -->
+
+    <!-- Mortgage -->
     <div class="col-md-6 mb-4" id="mortgage-loan">
       <div class="card h-100 shadow-sm">
         <div class="card-body">
@@ -227,26 +219,148 @@
 
           <details>
             <summary>Apply Online</summary>
-           <summary>Apply Online</summary>
-              <form class="loan-form mt-3">
-                <input type="text" class="form-control" placeholder="Full Name" required>
-                <input type="email" name="email" class="form-control" placeholder="Email Address"   autocomplete="email"  required>
-                <input type="text" class="form-control money-input" placeholder="Property Value (£)">
-                <input type="text" class="form-control money-input" placeholder="Deposit Amount (£)">
-                <input type="text" class="form-control money-input" placeholder="Annual Income (£)">
-                <button type="submit" class="btn btn-primary w-100">
-                  Submit Application
-                </button>
-                <div class="success-text" style="display:none; color:green; font-size:0.9rem; margin-top:10px;">
-                  ✅ Your application has been submitted successfully. We will contact you shortly.
-                </div>
+            <form class="loan-form mt-3">
+              <input type="text" class="form-control" placeholder="Full Name" required>
+              <input type="email" name="email" class="form-control" placeholder="Email Address" autocomplete="email" required>
+              <input type="text" class="form-control money-input" placeholder="Property Value (£)">
+              <input type="text" class="form-control money-input" placeholder="Deposit Amount (£)">
+              <input type="text" class="form-control money-input" placeholder="Annual Income (£)">
+              <button type="submit" class="btn btn-primary w-100">
+                Submit Application
+              </button>
+              <div class="success-text" style="display:none; color:green; font-size:0.9rem; margin-top:10px;">
+                ✅ Your application has been submitted successfully. We will contact you shortly.
+              </div>
+              <div class="error-text" style="display:none; color:red; font-size:0.85rem;">
+                Please enter valid details.
+              </div>
+            </form>
+          </details>
 
-                <div class="error-text" style="display:none; color:red; font-size:0.85rem;">
-                  Please enter valid details.
-                </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Insurance -->
+    <div class="col-md-6 mb-4" id="insurance">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
 
-              </form>
+          <img src="images/insurance.webp" class="loan-img img-fluid" alt="Insurance image">
+
+          <h5 class="card-title">Insurance</h5>
+
+          <p class="card-text">
+            Insurance products provide financial protection against unexpected events,
+            including property, travel, and personal risks.
+          </p>
+
+          <details class="mb-3">
+            <summary>Eligibility</summary>
+            <ul>
+              <li>Must be 18 years or older</li>
+              <li>Valid personal details required</li>
+              <li>Policy conditions apply</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Apply Online</summary>
+            <form class="loan-form mt-3">
+              <input type="text" class="form-control" placeholder="Full Name" required>
+              <input type="email" name="email" class="form-control" placeholder="Email Address" autocomplete="email" required>
+              <button type="submit" class="btn btn-primary w-100">Get Quote</button>
+              <div class="success-text" style="display:none; color:green; font-size:0.9rem; margin-top:10px;">
+                ✅ Your application has been submitted successfully. We will contact you shortly.
+              </div>
+              <div class="error-text" style="display:none; color:red; font-size:0.85rem;">
+                Please enter valid details.
+              </div>
+            </form>
+          </details>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Investment Services -->
+    <div class="col-md-6 mb-4" id="investment-services">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+
+          <img src="images/investment.jpg" class="loan-img img-fluid" alt="Investment image">
+
+          <h5 class="card-title">Investment Services</h5>
+
+          <p class="card-text">
+            Investment services help customers grow their wealth through managed portfolios,
+            offering guidance on long-term financial planning.
+          </p>
+
+          <details class="mb-3">
+            <summary>Eligibility</summary>
+            <ul>
+              <li>Minimum investment required</li>
+              <li>Basic financial assessment</li>
+              <li>Long-term commitment recommended</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Apply Online</summary>
+            <form class="loan-form mt-3">
+              <input type="text" class="form-control" placeholder="Full Name" required>
+              <input type="email" name="email" class="form-control" placeholder="Email Address" autocomplete="email" required>
+              <button type="submit" class="btn btn-primary w-100">Start Investing</button>
+              <div class="success-text" style="display:none; color:green; font-size:0.9rem; margin-top:10px;">
+                ✅ Your application has been submitted successfully. We will contact you shortly.
+              </div>
+              <div class="error-text" style="display:none; color:red; font-size:0.85rem;">
+                Please enter valid details.
+              </div>
+            </form>
+          </details>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Wealth Management -->
+    <div class="col-md-6 mb-4" id="wealth-management">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+
+          <img src="images/wealth.jpg" class="loan-img img-fluid" alt="Wealth management image">
+
+          <h5 class="card-title">Wealth Management</h5>
+
+          <p class="card-text">
+            Wealth management provides personalised financial advice to help clients manage investments
+            and achieve long-term financial goals.
+          </p>
+
+          <details class="mb-3">
+            <summary>Eligibility</summary>
+            <ul>
+              <li>Minimum investment required</li>
+              <li>Financial assessment needed</li>
+              <li>Long-term planning commitment</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Apply Online</summary>
+            <form class="loan-form mt-3">
+              <input type="text" class="form-control" placeholder="Full Name" required>
+              <input type="email" name="email "class="form-control" placeholder="Email Address" required>
+              <button type="submit" class="btn btn-primary w-100">Get Advice</button>
+              <div class="success-text" style="display:none; color:green; font-size:0.9rem; margin-top:10px;">
+                ✅ Your application has been submitted successfully. We will contact you shortly.
+              </div>
+              <div class="error-text" style="display:none; color:red; font-size:0.85rem;">
+                Please enter valid details.
+              </div>
+            </form>
           </details>
 
         </div>
@@ -254,6 +368,7 @@
     </div>
 
   </div>
+
  
      
 </section>
@@ -264,84 +379,12 @@
     <div class="footer-col">
       <h6>Our Products</h6>
       <ul>
-        <li>Bank Accounts</li>
-        <p class="footer-description">
-  Unity Bank offers flexible bank account options designed for everyday banking,
-  secure online transactions, and easy money management for personal and business customers.
-</p>
-        <li>Credit Cards</li> 
-        <p class="footer-description">
-  Our credit card services provide convenient payment solutions, spending control,
-  and secure purchasing features to support both online and in-store transactions.
-</p>
-        <li>Savings</li>
-        <p class="footer-description">
-  Savings products are designed to help customers build financial security through
-  reliable interest options and long-term money management opportunities.
-</p>
-        <li>Loans</li>
-        <li><a href="product.html#student-loan">Student Loans</a></li>
-     <h5 class="card-title">Student Loans</h5>
-
-<p class="card-text">
-  Student loans support individuals pursuing higher education by helping
-  cover tuition fees, accommodation, and essential living costs. Unity
-  Bank structures these loans with consideration for students’ future
-  financial circumstances.
-</p>
-        <p class="card-text">
-  These loans are intended to reduce financial pressure during academic studies,
-  allowing students to focus more effectively on their education and personal
-  development. Flexible repayment options may also be available after graduation,
-  helping borrowers transition into employment before beginning repayments.
-</p>
-        <li><a href="product.html#business-loan">Business Loans</a></li>
-        <h5 class="card-title">Business Loans</h5>
-
-<p class="card-text">
-  Business loans are designed to support small and medium-sized enterprises
-  by providing funding for growth, equipment investment, and operational
-  needs, helping businesses maintain financial stability.
-</p>
-
-<p class="card-text">
-  Unity Bank understands the challenges faced by growing businesses and aims to
-  provide financial support tailored to different industries and operational goals.
-  Business loans can be used for expansion projects, technology upgrades, staffing,
-  or improving day-to-day cash flow management.
-</p>
-        <li><a href="product.html#mortgage-loan">Mortgage</a></li>
-        <h5 class="card-title">Mortgage</h5>
-
-<p class="card-text">
-  Mortgage products help customers purchase or refinance residential
-  property through long-term financing solutions. Unity Bank supports
-  customers throughout the home-buying journey with clear guidance.
-</p>
-
-<p class="card-text">
-  Our mortgage products are designed to support both first-time buyers and existing
-  homeowners seeking refinancing opportunities. With competitive repayment structures
-  and personalised support, Unity Bank helps customers make informed decisions about
-  long-term property investments.
-</p>
-        <li>Credit Cards</li>
-<p class="footer-description">
-  Our credit card services provide convenient payment solutions, spending control,
-  and secure purchasing features to support both online and in-store transactions.
-</p> 
-        <li>Classic Debit Card</li>
-<p class="footer-description">
-  The Classic Debit Card allows customers to make secure everyday purchases
-  directly from their account, offering full spending control and real-time
-  transaction tracking.
-</p>
-
-        <li>Rewards Credit Card</li>
-<p class="footer-description">
-  Our Rewards Credit Card lets customers earn points on every purchase,
-  which can be redeemed for travel, shopping, or cashback benefits.
-</p>
+        <li><a href="#insurance">Insurance</a></li>
+        <li><a href="#investment-services">Investment Services</a></li>
+        <li><a href="#wealth-management">Wealth Management</a></li>
+        <li><a href="#student-loan">Student Loans</a></li>
+        <li><a href="#business-loan">Business Loans</a></li>
+        <li><a href="#mortgage-loan">Mortgage</a></li>
       </ul>
     </div>
 
