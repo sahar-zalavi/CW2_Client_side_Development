@@ -1,6 +1,6 @@
 <!DOCTYPE html>
+<!-- test -->
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,30 +11,66 @@
 
   <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="stylesheet.css">
+
+  <script src="jquery-4.0.0.js"></script>
+  <script src="JavaScript.js"></script>
 </head>
 
 <body id="top">
 
-<header>
+<header class="d-flex align-items-center px-4 py-3">
+
   <img src="images/bank_logo.png" alt="Unity Bank Logo" class="logo">
 
   <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
 
   <nav class="nav1" id="mainNav">
+
     <a href="home.html">Home</a>
     <a href="accounts.html">Accounts</a>
     <a href="transfers.html">Transfers</a>
     <a href="support.html">Support</a>
     <a href="product.html">Our Products</a>
 
-    <a href="#" id="signInBtn">Sign in</a>
-    <a href="#" id="signUpBtn">Sign up</a>
-    <a href="#" id="signOutBtn" style="display: none; color: #ff4d4d;">Sign out</a>
+    <div class="nav-dropdown">
+      <a href="#" id="signInBtn">Sign in</a>
+      <a href="#" id="signOutBtn" style="display: none; color: #ff4d4d; margin-left: 10px;">Sign out</a>
 
-    <form class="search-form">
-      <input type="search" id="searchInput" placeholder="Search">
-      <div id="searchResults"></div>
-    </form>
+      <div class="nav-dropdown-content" id="signInBox">
+        <form id="signInForm">
+          <input type="text" id="loginUsername" placeholder="Username" autocomplete="username" required>
+          <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" required>
+          <button type="submit">Sign in</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="nav-dropdown">
+      <a href="#" id="signUpBtn">Sign up</a>
+
+      <div class="nav-dropdown-content" id="signUpBox">
+        <form id="signUpForm">
+          <input type="text" id="signupUsername" placeholder="Username" required>
+          <input type="email" id="signupEmail" placeholder="Email" autocomplete="email" required>
+          <input type="password" id="signupPassword" placeholder="Password" required>
+
+          <small id="passwordHelp" class="form-error d-none">
+            Password must be 8+ characters with uppercase, lowercase, number and symbol.
+          </small>
+
+          <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="ms-auto">
+      <form class="search-form">
+        <input type="search" id="searchInput" placeholder="Search">
+        <div id="searchResults"></div>
+      </form>
+    </div>
+
   </nav>
 </header>
 
@@ -52,7 +88,6 @@
 </section>
 
 <section class="container" id="accountSection">
-
   <h2 class="section-title">Your Accounts</h2>
 
   <div class="action-bar">
@@ -71,53 +106,12 @@
   </div>
 
   <div id="accountList" class="accounts-grid"></div>
-
 </section>
 
 <section class="container" id="transactionSection">
   <h2 class="section-title">Transaction History</h2>
   <div id="transactionList"></div>
 </section>
-
-<div class="modal" id="authPopup">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <h5>Sign in or Sign up</h5>
-        <button type="button" class="btn-close" data-close="modal">×</button>
-      </div>
-
-      <div class="modal-body">
-        <h5>Sign in</h5>
-
-        <form id="signInForm">
-          <input type="text" id="loginUsername" placeholder="Username" autocomplete="username" required>
-          <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" required>
-          <button type="submit" class="btn-primary">Sign in</button>
-        </form>
-
-        <hr>
-
-        <h5>Sign up</h5>
-
-        <form id="signUpForm">
-          <input type="text" id="signupUsername" placeholder="Username" required>
-          <input type="email" id="signupEmail" placeholder="Email" autocomplete="email" required>
-          <input type="password" id="signupPassword" placeholder="Password" required>
-
-          <small id="passwordHelp" class="form-error d-none">
-            Password must be 8+ characters with uppercase, lowercase, number and symbol.
-          </small>
-
-          <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
-          <button type="submit" class="btn-primary">Sign up</button>
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 <div class="modal" id="infoPopup">
   <div class="modal-dialog">
@@ -223,8 +217,59 @@
   </div>
 </div>
 
-<script src="jquery-4.0.0.js"></script>
-<script src="JavaScript.js"></script>
+<footer class="footer">
+  <div class="footer-grid">
+
+    <div class="footer-col">
+      <h6>Our Products</h6>
+      <ul>
+        <li><a href="product.html#insurance">Insurance</a></li>
+        <li><a href="product.html#investment-services">Investment Services</a></li>
+        <li><a href="product.html#wealth-management">Wealth Management</a></li>
+        <li><a href="product.html#student-loan">Student Loans</a></li>
+        <li><a href="product.html#business-loan">Business Loans</a></li>
+        <li><a href="product.html#mortgage-loan">Mortgage</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h6>Support</h6>
+      <ul>
+        <li><a href="support.html">Support Centre</a></li>
+        <li><a href="support.html#account-help">Account Help</a></li>
+        <li><a href="support.html#card-support">Card Support</a></li>
+        <li><a href="support.html#payments-support">Payments & Transfers</a></li>
+        <li><a href="support.html#mobile-support">Mobile & Online Banking</a></li>
+        <li><a href="support.html#faq-section">FAQs</a></li>
+        <li><a href="support.html#contact-section">Contact Support</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h6>Contact Us</h6>
+      <ul>
+        <li>📞 +44 20 7123 4567</li>
+        <li>📧 support@unitybank.co.uk</li>
+        <li>🕘 Mon–Fri: 9am–5pm</li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-right">
+      <h6>Follow Us</h6>
+      <div class="social-icons">
+        <a href="#"><img src="images/facebook2.png" id="img_f" alt="Facebook"></a>
+        <a href="#"><img src="images/twitter.webp" alt="Twitter"></a>
+        <a href="#"><img src="images/Linkedin2.png" alt="LinkedIn"></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-base">
+    <a href="#top" class="back-to-top">↑ Back to top</a>
+    <span>© 2026 Unity Bank. All rights reserved.</span>
+  </div>
+</footer>
 
 </body>
 </html>
