@@ -572,231 +572,70 @@ $(document).on("submit", "#mortgagePaymentForm", function (e) {
     return;
   }
 
-  if (payment > mortgage.mortgageRemaining) {
-    payment = mortgage.mortgageRemaining;
-  }
+    form.find(".success-text").fadeIn();
 
-  mortgage.mortgageRemaining -= payment;
+    setTimeout(function () {
+      form[0].reset();
+      form.find("input").css("border-color", "");
+    }, 1000);
 
-  addTransaction(`Mortgage payment made: £${payment.toFixed(2)}`);
-
-  if (mortgage.mortgageRemaining <= 0) {
-    mortgage.mortgageRemaining = 0;
-    showToast("Mortgage fully paid off", "success");
-    addTransaction("Mortgage fully repaid");
-  } else {
-    showToast(`Mortgage payment successful (£${payment.toFixed(2)})`, "success");
-  }
-
-  save();
-
-  popup("mortgagePaymentPopup")?.hide();
-  $("#mortgagePaymentForm")[0].reset();
-
-  renderAccounts();
-});
+    setTimeout(function () {
+      form.find(".success-text").fadeOut();
+    }, 3000);
+  });
 
 
-// OPEN TRANSFER POPUP
-// -------------------------------------------------
 
-$(document).on("click", ".transfer-button", function () {
-  if (!currentUser) {
-    showToast("Please sign in first", "warning");
-    return;
-  }
-
-  let list = accountsDB[currentUser.username] || [];
-  let validAccounts = list.filter(a => a.type !== "Mortgage");
-
-  if (validAccounts.length < 2) {
-    showToast("You need at least 2 non-mortgage accounts", "warning");
-    return;
-  }
-
-  let options = validAccounts.map(a => `
-    <option value="${a.id}">
-      ${a.name} (£${a.balance.toFixed(2)})
-    </option>
-  `);
-
-  $("#fromAccount, #toAccount").html(options);
-  popup("transferPopup")?.show();
-});
+  // SEARCH
 
 
-// PROCESS TRANSFER
-// -------------------------------------------------
+  $("#searchInput").on("input", function () {
+    const query    = $(this).val().toLowerCase().trim();
+    const $results = $("#searchResults").show().empty();
 
-$(document).on("submit", "#transferForm", function (e) {
-  e.preventDefault();
+    if (query.length < 2) return;
 
-  if (!currentUser) {
-    return;
-  }
+    $("h1, h2, h3, p, li").each(function () {
+      const $el = $(this);
+      if ($el.text().toLowerCase().includes(query)) {
+        $("<a href='#'></a>")
+          .text($el.text().substring(0, 40) + "...")
+          .on("click", function (e) {
+            e.preventDefault();
+            
+            $("#searchResults").empty().hide();  
+            $("#searchInput").blur();   
 
-  let list = accountsDB[currentUser.username];
+            $("html, body").animate({ scrollTop: $el.offset().top - 100 }, 500);
+            $el.css("background", "yellow");
+            setTimeout(function () { $el.css("background", "none"); }, 2000);
+          })
+          .appendTo($results);
+      }
+    });
 
-  let from = list.find(a => a.id == $("#fromAccount").val());
-  let to = list.find(a => a.id == $("#toAccount").val());
-  let amount = Number($("#transferAmount").val());
-
-  if (!from || !to) {
-    return;
-  }
-
-  if (from.id === to.id) {
-    showToast("Cannot transfer to same account", "danger");
-    return;
-  }
-
-  if (amount <= 0) {
-    showToast("Enter valid amount", "warning");
-    return;
-  }
-
-  if (from.balance < amount) {
-    showToast("Insufficient balance", "danger");
-    return;
-  }
-
-  from.balance -= amount;
-  to.balance += amount;
-
-  save();
-
-  popup("transferPopup")?.hide();
-  $("#transferForm")[0].reset();
-
-  showToast("Transfer successful", "success");
-
-  addTransaction(
-    `Transferred £${amount.toFixed(2)} from ${from.name} to ${to.name}`
-  );
-
-  renderAccounts();
-});
+    if ($results.is(":empty")) {
+      $results.append("<p>No results found</p>");
+    }
+  });
 
 
-// RENDER ACCOUNTS
-// -------------------------------------------------
-
-function renderAccounts() {
-  if (!currentUser) {
-    return;
-  }
-
-  let list = accountsDB[currentUser.username] || [];
-
-  if (!list.length) {
-    $("#accountList").html(`
-      <p class="muted">No accounts created yet.</p>
-    `);
-
-    $("#totalBalance").text("£0.00");
-    renderTransactions();
-
-    return;
-  }
-
-  $("#accountList").html(
-    list.map(a => `
-      <div class="account-card">
-
-        <div class="info">
-
-          <div class="badge">${a.type}</div>
-
-          <div class="balance">
-            ${
-              a.type === "Mortgage"
-              ? `£${a.mortgageRemaining.toFixed(2)} remaining`
-              : `£${a.balance.toFixed(2)}`
-            }
-          </div>
-
-          <div class="acc-name">${a.name}</div>
-
-          <small>Account No: ${a.accountNumber}</small>
-
-          ${
-            a.sortCode
-            ? `<small>Sort Code: ${a.sortCode}</small>`
-            : `<small>Sort Code: Not applicable</small>`
-          }
-
-          ${
-            a.hasCard
-            ? `<small>Card: ${a.cardNumber}</small>`
-            : a.type !== "Mortgage"
-              ? `
-                <button class="btn-primary btn-sm mt-2 request-card" data-id="${a.id}">
-                  Request Card
-                </button>
-              `
-              : `<small>No card required for mortgage</small>`
-          }
-
-          ${
-            a.type === "Mortgage"
-            ? `
-              <div class="mt-2">
-                <strong>Total Mortgage:</strong>
-                £${a.mortgageTotal.toFixed(2)}
-                <br>
-                <strong>Remaining:</strong>
-                £${a.mortgageRemaining.toFixed(2)}
-                <br>
-                <button class="btn-success btn-sm mt-2 pay-mortgage" data-id="${a.id}">
-                  Pay Mortgage
-                </button>
-              </div>
-            `
-            : ""
-          }
-
-        </div>
-
-        <button class="btn-danger btn-sm delete" data-id="${a.id}">
-          Delete
-        </button>
-
-      </div>
-    `).join("")
-  );
-
-  let total = list.reduce((sum, a) => sum + (a.balance || 0), 0);
-
-  $("#totalBalance").text("£" + total.toFixed(2));
-
-  renderTransactions();
-}
-
-
-// UPDATE HEADER
-// -------------------------------------------------
-
-function updateUI() {
-  if (currentUser) {
-    $("#signInBtn").text("Welcome " + currentUser.username);
-    $("#signUpBtn").hide();
-    $("#signOutBtn").show();
-  } else {
-    $("#signInBtn").text("Sign in");
-    $("#signUpBtn").show();
-    $("#signOutBtn").hide();
-  }
-}
-
-
-// START PAGE
-// -------------------------------------------------
+  // IMAGE SLIDER
 
 $(document).ready(function () {
-  updateUI();
+  let sliderIndex = 0;
+  const $slides   = $(".slider-img");
 
-  if (currentUser) {
-    renderAccounts();
-    renderTransactions();
+  if ($slides.length) {
+    setInterval(function () {
+      $slides.removeClass("active");
+      sliderIndex = (sliderIndex + 1) % $slides.length;
+      $slides.eq(sliderIndex).addClass("active");
+    }, 3000);
   }
+
+
+  
+  
+
 });
