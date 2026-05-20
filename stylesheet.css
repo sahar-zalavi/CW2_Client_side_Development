@@ -1,54 +1,164 @@
+/* =========================================================
+   UNITY BANK — MAIN WEBSITE FIRST
+   This stylesheet keeps the existing Unity Bank website design
+   as the priority, then fits the Accounts/Transfers features into it.
+   ========================================================= */
+
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: white;
+  background: #f5f6fa;
   color: #222;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* =========================
+   HEADER / MAIN NAVIGATION
+   Matches the main Unity Bank website
+   ========================= */
+
 header {
-  background: #123c7c;
-  padding: 12px 24px;
+  background-color: #0A2A66;
+  padding: 15px 30px;
   display: flex;
   align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 16px;
+  flex-wrap: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
 .logo {
   width: 110px;
+  flex-shrink: 0;
 }
 
 .nav-toggle {
   display: none;
+  margin-left: auto;
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 4px;
+  font-size: 1.5rem;
+  padding: 4px 10px;
+  cursor: pointer;
 }
 
 .nav1 {
   display: flex;
+  align-items: center;
   gap: 16px;
   flex-wrap: wrap;
-  align-items: center;
+  width: 100%;
 }
 
 .nav1 a {
   color: white;
   text-decoration: none;
+  font-weight: 500;
 }
 
-.nav1 a:hover {
+.nav1 a:hover,
+.nav1 a:focus {
   text-decoration: underline;
 }
 
-.search-form input {
-  padding: 6px;
+/* Main-site dropdown naming */
+.nav-dropdown,
+.dropdown {
+  position: relative;
 }
 
+.nav-dropdown-content,
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  min-width: 230px;
+  padding: 14px;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  z-index: 2000;
+}
+
+.nav-dropdown-content input,
+.dropdown-content input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+
+.nav-dropdown-content button,
+.dropdown-content button {
+  width: 100%;
+  background: #123c7c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nav-dropdown.open .nav-dropdown-content,
+.dropdown.open .dropdown-content,
+.nav-dropdown:hover .nav-dropdown-content,
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Search stays inside the nav without taking over the layout */
+.search-form {
+  margin-left: auto;
+  position: relative;
+}
+
+.search-form input {
+  padding: 7px 12px;
+  border: 1px solid #ccd3df;
+  border-radius: 20px;
+  min-width: 180px;
+  outline: none;
+}
+
+#searchResults {
+  position: absolute;
+  top: 38px;
+  right: 0;
+  background: white;
+  color: #222;
+  width: 220px;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+  z-index: 3000;
+}
+
+/* =========================
+   HERO
+   Uses the main website blue/white style
+   ========================= */
+
 .hero {
-  background: #d9e8ff;
-  padding: 35px 8%;
+  background: linear-gradient(135deg, #d9e8ff, #f5f9ff);
+  padding: 45px 8%;
 }
 
 .hero-layout {
@@ -56,65 +166,123 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 30px;
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
 .hero h1 {
   color: #123c7c;
+  margin-top: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
 }
 
 .hero p {
-  line-height: 1.5;
+  line-height: 1.6;
+  max-width: 560px;
 }
 
 .hero-image img {
   width: 350px;
+  border-radius: 12px;
 }
 
+/* =========================
+   PAGE CONTAINERS
+   ========================= */
+
 .container {
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 30px 20px;
+  padding: 35px 20px;
 }
 
 .section-title {
   color: #123c7c;
-  margin-bottom: 15px;
+  margin: 0 0 18px;
 }
 
 .action-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
+  gap: 10px;
+  margin-bottom: 22px;
 }
+
+/* =========================
+   BUTTONS
+   ========================= */
 
 .account-btn,
 .btn-primary {
   background: #123c7c;
   color: white;
   border: none;
-  padding: 9px 16px;
-  border-radius: 3px;
+  padding: 10px 16px;
+  border-radius: 5px;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .account-btn:hover,
 .btn-primary:hover {
-  background: #0d2f63;
+  background: #0A2A66;
+}
+
+.btn-danger {
+  background: #b00020;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-success {
+  background: #1f6f3f;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-sm {
+  font-size: 0.85rem;
+  padding: 6px 10px;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* =========================
+   ACCOUNT CONTENT
+   Fits into the main website instead of replacing it
+   ========================= */
+
+.accounts-grid {
+  display: grid;
+  gap: 14px;
 }
 
 .total-box,
 .account-card,
 .transaction,
 .modal-content {
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-shadow: none;
+  border: 1px solid #d7dce5;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(10, 42, 102, 0.08);
+  background: white;
 }
 
 .total-box {
-  padding: 14px;
-  margin-bottom: 18px;
+  padding: 18px;
+  margin-bottom: 20px;
 }
 
 .total-box h2,
@@ -124,123 +292,41 @@ header {
 }
 
 .account-card {
-  padding: 14px;
-  margin-bottom: 12px;
+  padding: 16px;
   display: flex;
   justify-content: space-between;
-  gap: 12px;
-  background: white;
+  gap: 16px;
 }
 
 .account-card .info {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
 }
 
 .badge {
-  background: #e6e6e6;
+  background: #e7efff;
   color: #123c7c;
-  padding: 3px 8px;
+  padding: 4px 9px;
   width: fit-content;
   font-size: 0.8rem;
+  border-radius: 999px;
+  font-weight: 700;
 }
 
 .balance {
   font-weight: bold;
   color: #123c7c;
+  font-size: 1.2rem;
 }
 
 .transaction {
-  padding: 10px;
-  margin-bottom: 8px;
-  background: white;
+  padding: 12px;
+  margin-bottom: 10px;
 }
 
 .muted {
   color: #777;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  padding: 35px 15px;
-  z-index: 2000;
-  overflow-y: auto;
-}
-
-.modal.show {
-  display: block;
-}
-
-.modal-dialog {
-  max-width: 520px;
-  margin: 0 auto;
-}
-
-.modal-content {
-  background: white;
-}
-
-.modal-header {
-  background: #123c7c;
-  color: white;
-  padding: 12px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.modal-body {
-  padding: 16px;
-}
-
-.modal-footer {
-  padding: 12px 16px;
-  border-top: 1px solid #ccc;
-}
-
-.modal-body input,
-.modal-body select {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #aaa;
-}
-
-.modal-body label {
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-
-.btn-close {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-
-.btn-danger {
-  background: #b00020;
-  color: white;
-  border: none;
-  padding: 7px 12px;
-  cursor: pointer;
-}
-
-.btn-success {
-  background: #1f6f3f;
-  color: white;
-  border: none;
-  padding: 7px 12px;
-  cursor: pointer;
-}
-
-.btn-sm {
-  font-size: 0.85rem;
 }
 
 .mt-2 {
@@ -257,6 +343,7 @@ header {
   background: #ffe5e5;
   color: #900;
   border: 1px solid #cc9999;
+  border-radius: 4px;
   padding: 7px;
   margin-bottom: 10px;
   font-size: 0.85rem;
@@ -267,10 +354,78 @@ header {
   font-family: Arial, sans-serif;
 }
 
-@media (max-width: 700px) {
+/* =========================
+   MODALS / POPUPS
+   Works without Bootstrap JS
+   ========================= */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  padding: 35px 15px;
+  z-index: 4000;
+  overflow-y: auto;
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal-dialog {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.modal-header {
+  background: #0A2A66;
+  color: white;
+  padding: 13px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px 8px 0 0;
+}
+
+.modal-header h5 {
+  margin: 0;
+}
+
+.modal-body {
+  padding: 16px;
+}
+
+.modal-footer {
+  padding: 12px 16px;
+  border-top: 1px solid #d7dce5;
+}
+
+.modal-body input,
+.modal-body select {
+  width: 100%;
+  padding: 9px;
+  margin-bottom: 10px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.modal-body label {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 850px) {
+  header {
+    flex-wrap: wrap;
+  }
+
   .nav-toggle {
     display: block;
-    margin-left: auto;
   }
 
   .nav1 {
@@ -278,15 +433,38 @@ header {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+    gap: 12px;
+    padding-top: 12px;
   }
 
   .nav1.open {
     display: flex;
   }
 
+  .search-form {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .search-form input {
+    width: 100%;
+  }
+
+  .nav-dropdown-content,
+  .dropdown-content {
+    position: static;
+    width: 100%;
+    margin-top: 8px;
+  }
+
   .hero-layout {
     flex-direction: column;
     text-align: center;
+  }
+
+  .hero p {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-image img {
