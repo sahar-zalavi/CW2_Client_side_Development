@@ -701,3 +701,27 @@ $(document).ready(function () {
     }, 3000);
   }
 });
+
+
+
+const toggleTransactionsBtn = document.getElementById("toggleTransactionsBtn");
+const transactionSection = document.getElementById("transactionSection");
+
+if (toggleTransactionsBtn && transactionSection) {
+
+  toggleTransactionsBtn.addEventListener("click", () => {
+
+    if (transactionSection.style.display === "none") {
+
+      transactionSection.style.display = "block";
+      toggleTransactionsBtn.textContent = "Hide Transaction History";
+
+    } else {
+
+      transactionSection.style.display = "none";
+      toggleTransactionsBtn.textContent = "Show Transaction History";
+    }
+
+  });
+
+}
