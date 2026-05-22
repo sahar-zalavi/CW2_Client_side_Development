@@ -1,30 +1,33 @@
-$(document).ready(function () {
+let accountsDB = JSON.parse(localStorage.getItem("accountsDB")) || {};
+let transactionsDB = JSON.parse(localStorage.getItem("transactionsDB")) || {};
+let currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 
-  let usersDB = JSON.parse(localStorage.getItem("usersDB")) || {};
-  let accountsDB = JSON.parse(localStorage.getItem("accountsDB")) || {};
-  let transactionsDB = JSON.parse(localStorage.getItem("transactionsDB")) || {};
-  let currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
+let selectedAccountType = null;
 
-  let selectedAccountType = null;
+function refreshCurrentUser() {
+  currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
+}
 
+<<<<<<< Updated upstream
   const usernameRegex  = /^[a-zA-Z0-9]{4,20}$/;
   const emailRegex     = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordRegex  = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
   const studentIdRegex = /^[Bb]\d{8}$/;
   const nameRegex      = /^[A-Za-z\s]{2,50}$/;
   const numberRegex    = /^[0-9]+(\.[0-9]{1,2})?$/;
+=======
+function save() {
+  localStorage.setItem("accountsDB", JSON.stringify(accountsDB));
+  localStorage.setItem("transactionsDB", JSON.stringify(transactionsDB));
+}
+>>>>>>> Stashed changes
 
-  function save() {
-    localStorage.setItem("usersDB", JSON.stringify(usersDB));
-    localStorage.setItem("accountsDB", JSON.stringify(accountsDB));
-    localStorage.setItem("transactionsDB", JSON.stringify(transactionsDB));
-    localStorage.setItem("currentUser", JSON.stringify(currentUser));
-  }
+function popup(id) {
+  let el = document.getElementById(id);
 
-  function refreshCurrentUser() {
-    currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
-  }
+  if (!el) return null;
 
+<<<<<<< Updated upstream
   function popup(id) {
     let el = document.getElementById(id);
     if (!el) return null;
@@ -67,11 +70,53 @@ $(document).ready(function () {
     for (let i = 0; i < 16; i++) {
       card += Math.floor(Math.random() * 10);
       if ((i + 1) % 4 === 0 && i !== 15) card += " ";
-    }
+=======
+  return {
+    show() {
+      el.style.display = "block";
+      el.classList.add("show");
+      document.body.style.overflow = "hidden";
+    },
 
-    return card;
+    hide() {
+      el.style.display = "none";
+      el.classList.remove("show");
+      document.body.style.overflow = "";
+>>>>>>> Stashed changes
+    }
+  };
+}
+
+function showToast(message) {
+  alert(message);
+}
+
+function generateAccountNumber() {
+  return Math.floor(10000000 + Math.random() * 90000000);
+}
+
+function generateSortCode() {
+  return (
+    Math.floor(10 + Math.random() * 89) +
+    "-" +
+    Math.floor(10 + Math.random() * 89) +
+    "-" +
+    Math.floor(10 + Math.random() * 89)
+  );
+}
+
+function generateCardNumber() {
+  let card = "";
+
+  for (let i = 0; i < 16; i++) {
+    card += Math.floor(Math.random() * 10);
+
+    if ((i + 1) % 4 === 0 && i !== 15) {
+      card += " ";
+    }
   }
 
+<<<<<<< Updated upstream
   function updateUI() {
     refreshCurrentUser();
 
@@ -95,20 +140,44 @@ $(document).ready(function () {
   function addTransaction(text) {
     refreshCurrentUser();
     if (!currentUser) return;
+=======
+  return card;
+}
 
-    if (!transactionsDB[currentUser.username]) {
-      transactionsDB[currentUser.username] = [];
-    }
+function updateUI() {
+  refreshCurrentUser();
+  renderAccounts();
+  renderTransactions();
+}
 
-    transactionsDB[currentUser.username].unshift({
-      text: text,
-      date: new Date().toLocaleString()
-    });
+function addTransaction(text) {
+  refreshCurrentUser();
 
-    save();
-    renderTransactions();
+  if (!currentUser) return;
+
+  if (!transactionsDB[currentUser.username]) {
+    transactionsDB[currentUser.username] = [];
   }
 
+  transactionsDB[currentUser.username].unshift({
+    text: text,
+    date: new Date().toLocaleString()
+  });
+
+  save();
+  renderTransactions();
+}
+
+function renderTransactions() {
+  refreshCurrentUser();
+>>>>>>> Stashed changes
+
+  if (!currentUser) {
+    $("#transactionList").html("");
+    return;
+  }
+
+<<<<<<< Updated upstream
   function renderTransactions() {
     refreshCurrentUser();
 
@@ -138,9 +207,35 @@ $(document).ready(function () {
 
   function renderAccounts() {
     refreshCurrentUser();
+=======
+  let list = transactionsDB[currentUser.username] || [];
 
-    if (!$("#accountList").length) return;
+  if (!list.length) {
+    $("#transactionList").html("<div class='transaction'>No transactions yet</div>");
+    return;
+  }
 
+  $("#transactionList").html(
+    list.map(t => `
+      <div class="transaction">
+        <strong>${t.text}</strong><br>
+        <small>${t.date}</small>
+      </div>
+    `).join("")
+  );
+}
+
+function renderAccounts() {
+  refreshCurrentUser();
+>>>>>>> Stashed changes
+
+  if (!currentUser) {
+    $("#accountList").html("<p>Please sign in to view your accounts.</p>");
+    $("#totalBalance").text("£0.00");
+    return;
+  }
+
+<<<<<<< Updated upstream
     if (!currentUser) {
       $("#accountList").html("<p>Please sign in to view your accounts.</p>");
       $("#totalBalance").text("£0.00");
@@ -184,12 +279,34 @@ $(document).ready(function () {
             </div>
           `;
         }
+=======
+  if (!accountsDB[currentUser.username]) {
+    accountsDB[currentUser.username] = [];
+  }
 
+  let list = accountsDB[currentUser.username];
+
+  let total = list
+    .filter(a => a.type !== "Mortgage")
+    .reduce((sum, a) => sum + Number(a.balance || 0), 0);
+
+  $("#totalBalance").text("£" + total.toFixed(2));
+
+  if (!list.length) {
+    $("#accountList").html("<p>No accounts opened yet.</p>");
+    return;
+  }
+>>>>>>> Stashed changes
+
+  $("#accountList").html(
+    list.map(account => {
+      if (account.type === "Mortgage") {
         return `
           <div class="account-card">
             <div class="info">
               <span class="badge">${account.type}</span>
               <h3>${account.name}</h3>
+<<<<<<< Updated upstream
               <p class="balance">£${Number(account.balance).toFixed(2)}</p>
               <p>Account No: ${account.accountNumber}</p>
               <p>Sort Code: ${account.sortCode}</p>
@@ -198,38 +315,130 @@ $(document).ready(function () {
 
             <div>
               <button class="btn-success btn-sm request-card" data-id="${account.id}">Request Card</button>
+=======
+              <p>Total mortgage: £${Number(account.mortgageTotal).toFixed(2)}</p>
+              <p class="balance">Remaining: £${Number(account.mortgageRemaining).toFixed(2)}</p>
+              <p>Account No: ${account.accountNumber}</p>
+            </div>
+
+            <div>
+              <button class="btn-success btn-sm pay-mortgage" data-id="${account.id}">Pay Mortgage</button>
+>>>>>>> Stashed changes
               <button class="btn-danger btn-sm delete" data-id="${account.id}">Delete</button>
             </div>
           </div>
         `;
-      }).join("")
-    );
+      }
+
+      return `
+        <div class="account-card">
+          <div class="info">
+            <span class="badge">${account.type}</span>
+            <h3>${account.name}</h3>
+            <p class="balance">£${Number(account.balance).toFixed(2)}</p>
+            <p>Account No: ${account.accountNumber}</p>
+            <p>Sort Code: ${account.sortCode}</p>
+            <p>Card: ${account.hasCard ? account.cardNumber : "No card requested"}</p>
+          </div>
+
+          <div>
+            <button class="btn-success btn-sm request-card" data-id="${account.id}">Request Card</button>
+            <button class="btn-danger btn-sm delete" data-id="${account.id}">Delete</button>
+          </div>
+        </div>
+      `;
+    }).join("")
+  );
+}
+
+const accountInfo = {
+  "Current Account":
+    "CURRENT ACCOUNT\n\nUsed for everyday banking, wages, bills, shopping and transfers.\n\nCard: Available after opening.",
+
+  "Savings Account":
+    "SAVINGS ACCOUNT\n\nUsed for saving money separately from daily spending.\n\nCard: Optional.",
+
+  "Student Account":
+    "STUDENT ACCOUNT\n\nDesigned for students managing student finance and daily spending.\n\nCard: Available.",
+
+  "Business Account":
+    "BUSINESS ACCOUNT\n\nDesigned for business income, expenses and supplier payments.\n\nCard: Available.",
+
+  "Credit Card":
+    "CREDIT CARD\n\nLets customers spend using credit and repay later.\n\nCard: Available.",
+
+  "Mortgage":
+    "MORTGAGE ACCOUNT\n\nA long-term home loan account. You can pay it down using available funds from another account."
+};
+
+/* Mobile navigation only */
+$(document).on("click", "#navToggle", function () {
+  $("#mainNav").toggleClass("open");
+});
+
+/* Modal close buttons */
+$(document).on("click", "[data-close='modal']", function () {
+  $(this).closest(".modal").removeClass("show").hide();
+  document.body.style.overflow = "";
+});
+
+$(document).on("click", ".modal", function (e) {
+  if (e.target === this) {
+    $(this).removeClass("show").hide();
+    document.body.style.overflow = "";
+  }
+});
+
+/* Open account information popup */
+$(document).on("click", ".open-account", function () {
+  refreshCurrentUser();
+
+  if (!currentUser) {
+    showToast("Please sign in first");
+    return;
   }
 
+<<<<<<< Updated upstream
   const accountInfo = {
     "Current Account":
       "CURRENT ACCOUNT\n\nUsed for everyday banking, wages, bills, shopping and transfers.\n\nCard: Available after opening.",
+=======
+  let type = $(this).data("type");
+  let list = accountsDB[currentUser.username] || [];
+  let count = list.filter(a => a.type === type).length;
 
-    "Savings Account":
-      "SAVINGS ACCOUNT\n\nUsed for saving money separately from daily spending.\n\nCard: Optional.",
+  if (count >= 2) {
+    showToast("Maximum 2 accounts per type allowed");
+    return;
+  }
+>>>>>>> Stashed changes
 
-    "Student Account":
-      "STUDENT ACCOUNT\n\nDesigned for students managing student finance and daily spending.\n\nCard: Available.",
+  selectedAccountType = type;
+  $("#infoPopupText").text(accountInfo[type]);
+  popup("infoPopup")?.show();
+});
 
-    "Business Account":
-      "BUSINESS ACCOUNT\n\nDesigned for business income, expenses and supplier payments.\n\nCard: Available.",
+/* Continue to create account */
+$(document).on("click", "#continueAccountBtn", function () {
+  if (!selectedAccountType) return;
 
-    "Credit Card":
-      "CREDIT CARD\n\nLets customers spend using credit and repay later.\n\nCard: Available.",
+  let type = selectedAccountType;
 
+  popup("infoPopup")?.hide();
+
+<<<<<<< Updated upstream
     "Mortgage":
       "MORTGAGE ACCOUNT\n\nA long-term home loan account. You can pay it down using available funds from another account."
   };
+=======
+  $("#accountType").val(type);
+>>>>>>> Stashed changes
 
-  $("#navToggle").on("click", function () {
-    $("#mainNav").toggleClass("open");
-  });
+  $("#accountPopupTitle").text(
+    type === "Mortgage" ? "Apply for Mortgage" : "Create Account"
+  );
 
+<<<<<<< Updated upstream
   $("#mainNav a").not("#signInBtn, #signUpBtn, #signOutBtn").on("click", function () {
     if ($(window).width() <= 768) {
       $("#mainNav").removeClass("open");
@@ -239,13 +448,31 @@ $(document).ready(function () {
   $("#signInBtn, #signUpBtn").on("click", function (e) {
     e.preventDefault();
     e.stopPropagation();
+=======
+  $("#accountAmountLabel").text(
+    type === "Mortgage" ? "Mortgage Amount" : "Initial Deposit"
+  );
 
-    if (currentUser && this.id === "signInBtn") return;
+  $("#accountSubmitBtn").text(
+    type === "Mortgage" ? "Apply for Mortgage" : "Create Account"
+  );
 
-    const isSignIn = this.id === "signInBtn";
-    const target = isSignIn ? "#signInBox" : "#signUpBox";
-    const other = isSignIn ? "#signUpBox" : "#signInBox";
+  popup("accountPopup")?.show();
+});
 
+/* Create account */
+$(document).on("submit", "#accountForm", function (e) {
+  e.preventDefault();
+>>>>>>> Stashed changes
+
+  refreshCurrentUser();
+
+  if (!currentUser) {
+    showToast("Please sign in first");
+    return;
+  }
+
+<<<<<<< Updated upstream
     if (isSignIn) {
       const saved = localStorage.getItem("lastUsername");
       if (saved) {
@@ -265,11 +492,24 @@ $(document).ready(function () {
       $(".nav-dropdown-content").hide();
     }
   });
+=======
+  let user = currentUser.username;
+  let type = $("#accountType").val();
+  let amount = Number($("input[name=deposit]").val()) || 0;
 
-  $(".nav-dropdown-content").on("click", function (e) {
-    e.stopPropagation();
-  });
+  if (amount < 0) {
+    showToast("Enter a valid amount");
+    return;
+  }
 
+  if (!accountsDB[user]) {
+    accountsDB[user] = [];
+  }
+>>>>>>> Stashed changes
+
+  let list = accountsDB[user];
+
+<<<<<<< Updated upstream
   $("#signInForm").on("submit", function (e) {
     e.preventDefault();
 
@@ -901,8 +1141,340 @@ $(document).ready(function () {
       sliderIndex = (sliderIndex + 1) % $slides.length;
       $slides.eq(sliderIndex).addClass("active");
     }, 3000);
+=======
+  if (type === "Mortgage") {
+    if (amount <= 0) {
+      showToast("Enter a valid mortgage amount");
+      return;
+    }
+
+    list.push({
+      id: Date.now(),
+      type: "Mortgage",
+      name: "Mortgage Account",
+      balance: 0,
+      mortgageTotal: amount,
+      mortgageRemaining: amount,
+      accountNumber: generateAccountNumber(),
+      sortCode: null,
+      hasCard: false,
+      cardNumber: null
+    });
+
+    addTransaction(`Mortgage approved for £${amount.toFixed(2)}`);
+  } else {
+    list.push({
+      id: Date.now(),
+      type: type,
+      name: type + " " + (list.filter(a => a.type === type).length + 1),
+      balance: amount,
+      accountNumber: generateAccountNumber(),
+      sortCode: generateSortCode(),
+      hasCard: false,
+      cardNumber: null
+    });
+
+    addTransaction(`${type} created with £${amount.toFixed(2)}`);
+>>>>>>> Stashed changes
   }
 
+  save();
+  popup("accountPopup")?.hide();
+  this.reset();
+
+  selectedAccountType = null;
+
+  renderAccounts();
+  showToast("Account saved successfully");
+});
+
+/* Request card */
+$(document).on("click", ".request-card", function () {
+  refreshCurrentUser();
+
+  if (!currentUser) return;
+
+  let id = $(this).data("id");
+  let account = accountsDB[currentUser.username].find(a => a.id == id);
+
+  if (!account) return;
+
+  if (account.type === "Mortgage") {
+    showToast("Mortgage accounts cannot have cards");
+    return;
+  }
+
+  if (account.hasCard) {
+    showToast("Card already requested");
+    return;
+  }
+
+  account.hasCard = true;
+  account.cardNumber = generateCardNumber();
+
+  save();
+  addTransaction(`Card requested for ${account.name}`);
+  renderAccounts();
+
+  showToast("Card created successfully");
+});
+
+/* Delete account */
+$(document).on("click", ".delete", function () {
+  refreshCurrentUser();
+
+  if (!currentUser) return;
+
+  let id = $(this).data("id");
+
+  accountsDB[currentUser.username] =
+    accountsDB[currentUser.username].filter(a => a.id != id);
+
+  save();
+  addTransaction("Account deleted");
+  renderAccounts();
+});
+
+/* Open transfer popup */
+$(document).on("click", ".transfer-button", function () {
+  refreshCurrentUser();
+
+  if (!currentUser) {
+    showToast("Please sign in first");
+    return;
+  }
+
+  let accounts = (accountsDB[currentUser.username] || []).filter(a => a.type !== "Mortgage");
+
+  if (accounts.length < 2) {
+    showToast("You need at least two normal accounts to transfer money");
+    return;
+  }
+
+  $("#fromAccount").html(
+    accounts.map(a => `
+      <option value="${a.id}">
+        ${a.name} - £${Number(a.balance).toFixed(2)}
+      </option>
+    `).join("")
+  );
+
+  $("#toAccount").html(
+    accounts.map(a => `
+      <option value="${a.id}">
+        ${a.name} - £${Number(a.balance).toFixed(2)}
+      </option>
+    `).join("")
+  );
+
+  popup("transferPopup")?.show();
+});
+
+/* Transfer money */
+$(document).on("submit", "#transferForm", function (e) {
+  e.preventDefault();
+
+  refreshCurrentUser();
+
+  let fromId = $("#fromAccount").val();
+  let toId = $("#toAccount").val();
+  let amount = Number($("#transferAmount").val());
+
+  if (fromId === toId) {
+    showToast("Choose two different accounts");
+    return;
+  }
+
+  if (!amount || amount <= 0) {
+    showToast("Enter a valid amount");
+    return;
+  }
+
+  let list = accountsDB[currentUser.username];
+  let from = list.find(a => a.id == fromId);
+  let to = list.find(a => a.id == toId);
+
+  if (!from || !to) {
+    showToast("Account not found");
+    return;
+  }
+
+  if (from.balance < amount) {
+    showToast("Insufficient funds");
+    return;
+  }
+
+  from.balance -= amount;
+  to.balance += amount;
+
+  save();
+  popup("transferPopup")?.hide();
+  this.reset();
+
+  addTransaction(`Transferred £${amount.toFixed(2)} from ${from.name} to ${to.name}`);
+  renderAccounts();
+
+  showToast("Transfer successful");
+});
+
+/* Open mortgage payment popup */
+$(document).on("click", ".pay-mortgage", function () {
+  refreshCurrentUser();
+
+  if (!currentUser) return;
+
+  let mortgageId = $(this).data("id");
+  let list = accountsDB[currentUser.username];
+  let mortgage = list.find(a => a.id == mortgageId);
+
+  if (!mortgage) {
+    showToast("Mortgage account not found");
+    return;
+  }
+
+  let normalAccounts = list.filter(a => a.type !== "Mortgage" && Number(a.balance) > 0);
+
+  if (!normalAccounts.length) {
+    showToast("You need money in a normal account to pay the mortgage");
+    return;
+  }
+
+  $("#mortgagePaymentAccountId").val(mortgageId);
+
+  $("#mortgageRemainingText").text(
+    "Remaining mortgage: £" + Number(mortgage.mortgageRemaining).toFixed(2)
+  );
+
+  $("#mortgagePayFromAccount").html(
+    normalAccounts.map(a => `
+      <option value="${a.id}">
+        ${a.name} - £${Number(a.balance).toFixed(2)}
+      </option>
+    `).join("")
+  );
+
+  $("#mortgagePaymentAmount").val("");
+
+  popup("mortgagePaymentPopup")?.show();
+});
+
+/* Pay mortgage */
+$(document).on("submit", "#mortgagePaymentForm", function (e) {
+  e.preventDefault();
+
+  refreshCurrentUser();
+
+  let mortgageId = $("#mortgagePaymentAccountId").val();
+  let fromId = $("#mortgagePayFromAccount").val();
+  let amount = Number($("#mortgagePaymentAmount").val());
+
+  let list = accountsDB[currentUser.username];
+  let mortgage = list.find(a => a.id == mortgageId);
+  let from = list.find(a => a.id == fromId);
+
+  if (!mortgage || !from) {
+    showToast("Account not found");
+    return;
+  }
+
+  if (!amount || amount <= 0) {
+    showToast("Enter a valid payment amount");
+    return;
+  }
+
+  if (from.balance < amount) {
+    showToast("Insufficient funds");
+    return;
+  }
+
+  if (amount > mortgage.mortgageRemaining) {
+    showToast("Payment cannot be more than the remaining mortgage");
+    return;
+  }
+
+  from.balance -= amount;
+  mortgage.mortgageRemaining -= amount;
+
+  if (mortgage.mortgageRemaining < 0) {
+    mortgage.mortgageRemaining = 0;
+  }
+
+  save();
+  popup("mortgagePaymentPopup")?.hide();
+  this.reset();
+
+  addTransaction(`Paid £${amount.toFixed(2)} towards mortgage from ${from.name}`);
+  renderAccounts();
+
+  showToast("Mortgage payment successful");
+});
+
+/* Search */
+$(document).on("input", "#searchInput", function () {
+  let query = $(this).val().toLowerCase().trim();
+  let $results = $("#searchResults").show().empty();
+
+  if (query.length < 2) {
+    $results.hide();
+    return;
+  }
+
+  $("h1, h2, h3, p, li").each(function () {
+    let $el = $(this);
+
+    if ($el.text().toLowerCase().includes(query)) {
+      $("<a href='#'></a>")
+        .text($el.text().substring(0, 40) + "...")
+        .on("click", function (e) {
+          e.preventDefault();
+
+          $("#searchResults").empty().hide();
+          $("#searchInput").blur();
+
+          $("html, body").animate({
+            scrollTop: $el.offset().top - 100
+          }, 500);
+
+          $el.css("background", "yellow");
+
+          setTimeout(function () {
+            $el.css("background", "none");
+          }, 2000);
+        })
+        .appendTo($results);
+    }
+  });
+
+  if ($results.is(":empty")) {
+    $results.append("<p>No results found</p>");
+  }
+});
+
+/* Toggle transaction history */
+$(document).on("click", "#toggleTransactionsBtn", function () {
+  let transactionSection = $("#transactionSection");
+
+  if (transactionSection.is(":visible")) {
+    transactionSection.hide();
+    $(this).text("Show Transaction History");
+  } else {
+    transactionSection.show();
+    $(this).text("Hide Transaction History");
+  }
+});
+
+/* Ready */
+$(document).ready(function () {
   updateUI();
 
+  let sliderIndex = 0;
+  let $slides = $(".slider-img");
+
+  if ($slides.length) {
+    setInterval(function () {
+      $slides.removeClass("active");
+      sliderIndex = (sliderIndex + 1) % $slides.length;
+      $slides.eq(sliderIndex).addClass("active");
+    }, 3000);
+  }
 });
