@@ -237,16 +237,14 @@ $(document).on("click", ".open-account", function () {
     showToast("Please sign in first");
     return;
   }
-
   let type = $(this).data("type");
   let list = accountsDB[currentUser.username] || [];
   let count = list.filter(a => a.type === type).length;
-
+  
   if (count >= 2) {
     showToast("Maximum 2 accounts per type allowed");
     return;
   }
-
   selectedAccountType = type;
   $("#infoPopupText").text(accountInfo[type]);
   popup("infoPopup")?.show();
